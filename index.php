@@ -105,7 +105,6 @@
 			$headers = array('Content-Type: application/json', 'Authorization:Bearer ' . $api_key, 'Content-Length: ' . strlen($body));
 			
 			debug_to_console(strlen($body));
-			debug_to_console($this);
 			
 			$curl = curl_init($url); 
 			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
@@ -117,10 +116,10 @@
 			
 			$percent = floor($result * 100);
 			
-			debug_to_console($result);
+			echo $result;
 			echo "<p>" . $result . "</p>";
 			#echo "<p>You are "$percent"% </p>;
-			header('Location: ');
+			#header('Location: ');
     	}
     }
     catch(Exception $e) {
