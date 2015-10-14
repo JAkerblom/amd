@@ -116,7 +116,7 @@
 			
 			$percent = floor($result * 100);
 			
-			echo $result;
+			debug_to_console($result);
 			echo "<p>This is your result: " . $result . "</p>";
 			#echo "<p>You are "$percent"% </p>;
 			#header('Location: ');
