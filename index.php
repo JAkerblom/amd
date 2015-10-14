@@ -108,13 +108,16 @@
 			
 			$curl = curl_init($url); 
 			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-			#curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
-			#curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-			#curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+			curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			
+			debug_to_console(curl_exec($curl));
 			debug_to_console($curl);
 			
 			$result = curl_exec($curl);
+			
+			var_dump($result);
 			
 			$percent = floor($result * 100);
 			
