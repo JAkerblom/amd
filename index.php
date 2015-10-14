@@ -5,6 +5,8 @@
 	<script src="js/app2.js"></script>
 	<script src="js/global.js"></script>
 	<script src="js/jquery.min.js"></script>
+	<script src="http://www.nuget.org/packages/jQuery/1.8.2"></script>
+	
 	<!-- <link rel="stylesheet" href="css/bootstrap.css"></link> -->
 	<style type="text/css">
     	body { background-color: #fff; border-top: solid 10px #000;
@@ -38,8 +40,11 @@
 		First: <input type="text" name="first"></br>
         Second: <input type="text" name="second"></br> 
         Third: <input type="text" name="third"></br>
+        Fourth: <input type="text" name="fourth"></br>
+        Fifth: <input type="text" name="fifth"></br>
         <input type="submit" value="Do calc">
 	</form>
+	<p name="out_par" id="out_par"></p>
 <?php
     // DB connection info
     //TODO: Update the values for $host, $user, $pwd, and $db
