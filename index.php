@@ -117,6 +117,10 @@
 			
 			$result = curl_exec($curl);
 			
+			echo curl_getinfo($ch) . '<br/>';
+			echo curl_errno($ch) . '<br/>';
+			echo curl_error($ch) . '<br/>';
+			
 			var_dump($result);
 			
 			$percent = floor($result * 100);
