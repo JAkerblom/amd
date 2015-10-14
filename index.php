@@ -4,8 +4,8 @@
 	<script src="js/angular.js"></script>
 	<script src="js/app2.js"></script>
 	<!-- <script src="js/global.js"></script> -->
-<!--	<script src="js/jquery.min.js"></script> -->
-	<script src="http://www.nuget.org/packages/jQuery/1.8.2"></script>
+	<script src="js/jquery.min.js"></script>
+<!--	<script src="http://www.nuget.org/packages/jQuery/1.8.2"></script> -->
 	
 	<!-- <link rel="stylesheet" href="css/bootstrap.css"></link> -->
 	<style type="text/css">

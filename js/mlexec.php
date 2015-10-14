@@ -9,6 +9,8 @@ if(isset($_POST['first'], $_POST['second'], $_POST['third'])) {
 	$fifth  = $_POST['fifth'];
 }
 
+echo $first;
+
 $data = array(
   'Inputs'=> array(
       'input1'=> array(
