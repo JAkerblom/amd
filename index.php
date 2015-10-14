@@ -33,7 +33,7 @@
 	<form method="post" action="index.php" enctype="multipart/form-data" >
       Name  <input type="text" name="name" id="name"/></br>
       Email <input type="text" name="email" id="email"/></br>
-      <input type="submit" name="submit" value="Submit" />
+      <input type="submit" name="UserSubmit" value="Submit" />
 	</form>
 
 	<form method="post" id="add" action="index.php"> 
@@ -42,7 +42,7 @@
         Third: <input type="text" name="third"></br>
         Fourth: <input type="text" name="fourth"></br>
         Fifth: <input type="text" name="fifth"></br>
-        <input type="submit" value="Do calc">
+        <input type="submit" name="PredSubmit" value="Do calc">
 	</form>
 	<p name="out_par" id="out_par"></p>
 <?php
@@ -64,17 +64,54 @@
     // Insert registration info
     if(!empty($_POST)) {
     try {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $date = date("Y-m-d");
-        // Insert data
-        $sql_insert = "INSERT INTO registration_tbl (name, email, date)
-                   VALUES (?,?,?)";
-        $stmt = $conn->prepare($sql_insert);
-        $stmt->bindValue(1, $name);
-        $stmt->bindValue(2, $email);
-        $stmt->bindValue(3, $date);
-        $stmt->execute();
+        if(isset($_POST['UserSubmit'])) {
+			$name = $_POST['name'];
+			$email = $_POST['email'];
+			$date = date("Y-m-d");
+			// Insert data
+			$sql_insert = "INSERT INTO registration_tbl (name, email, date)
+					   VALUES (?,?,?)";
+			$stmt = $conn->prepare($sql_insert);
+			$stmt->bindValue(1, $name);
+			$stmt->bindValue(2, $email);
+			$stmt->bindValue(3, $date);
+			$stmt->execute();
+  		} else if(isset($_POST['PredSubmit'])) {   
+        	if(isset($_POST['first'], $_POST['second'], $_POST['third'], $_POST['fourth'], $_POST['fifth'])) {
+		        $first  = $_POST['first'];
+        		$second = $_POST['second'];
+				$third  = $_POST['third'];
+				$fourth = $_POST['fourth'];
+				$fifth  = $_POST['fifth'];
+			}
+			echo $first;
+			
+			$data = array(
+			  'Inputs'=> array(
+				  'input1'=> array(
+					  'ColumnNames' => array("X1", "X2", "X3", "X4", "X5", "Y"),
+					  'Values' => array( array($first , $second, $third, $fourth, $fifth, 0))
+				  ),
+			  ),
+			  'GlobalParameters'=> null
+			);
+			
+			$body = json_encode($data);
+			$url = 'https://europewest.services.azureml.net/workspaces/1ce72f845b6d4b40a0c44018ce41c9aa/services/f72d0fb1e47d4b3fbdf1d2d1cb4b54ac/execute?api-version=2.0&details=true';
+			$api_key = '6fdbBStLMO4EbSTC5eb7BfaeLd6XuB0ppzXnPLU8jPuVghrZQMtMTxjyU17vWrBKRnhwuJfp3VPCLLQga8K5eQ==';
+			$headers = array('Content-Type: application/json', 'Authorization:Bearer ' . $api_key, 'Content-Length: ' . strlen($body));
+			
+			$this->responseArray['body'] = $body;
+			
+			$curl = curl_init($url); 
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+			curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			
+			$result = curl_exec($curl);
+			
+			echo $result;
     }
     catch(Exception $e) {
         die(var_dump($e));
