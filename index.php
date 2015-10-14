@@ -90,7 +90,7 @@
 			  'Inputs'=> array(
 				  'input1'=> array(
 					  'ColumnNames' => array("X1", "X2", "X3", "X4", "X5", "Y"),
-					  'Values' => array( array($first , $second, $third, $fourth, $fifth, 0))
+					  'Values' => array( array($first , $second, $third, $fourth, $fifth, "0"))
 				  ),
 			  ),
 			  'GlobalParameters'=> null
