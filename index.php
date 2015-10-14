@@ -3,6 +3,8 @@
 	<Title>Registration Form</Title>
 	<script src="js/angular.js"></script>
 	<script src="js/app2.js"></script>
+	<script src="js/global.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<!-- <link rel="stylesheet" href="css/bootstrap.css"></link> -->
 	<style type="text/css">
     	body { background-color: #fff; border-top: solid 10px #000;
@@ -30,7 +32,14 @@
       Name  <input type="text" name="name" id="name"/></br>
       Email <input type="text" name="email" id="email"/></br>
       <input type="submit" name="submit" value="Submit" />
-</form>
+	</form>
+
+	<form method="post" id="add" action="mlexec.php"> 
+		First: <input type="text" name="first"></br>
+        Second: <input type="text" name="second"></br> 
+        Third: <input type="text" name="third"></br>
+        <input type="submit" value="Do calc">
+	</form>
 <?php
     // DB connection info
     //TODO: Update the values for $host, $user, $pwd, and $db
