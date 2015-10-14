@@ -120,7 +120,7 @@
 			debug_to_console($result);
 			echo "<p>" . $result . "</p>";
 			#echo "<p>You are "$percent"% </p>;
-			
+			header('Location: ');
     	}
     }
     catch(Exception $e) {
