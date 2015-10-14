@@ -107,6 +107,7 @@
 			
 			$this->responseArray['body'] = $body;
 			
+			debug_to_console(strlen($body));
 			debug_to_console($this);
 			
 			$curl = curl_init($url); 
