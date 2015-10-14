@@ -5,13 +5,15 @@ if(isset($_POST['first'], $_POST['second'], $_POST['third'])) {
         $first  = $_POST['first'];
         $second = $_POST['second'];
 	$third  = $_POST['third'];
+	$fourth = $_POST['fourth'];
+	$fifth  = $_POST['fifth'];
 }
 
 $data = array(
   'Inputs'=> array(
       'input1'=> array(
-          'ColumnNames' => array("userID", "placeID", "rating"),
-          'Values' => array( array($first , $second, $third))
+          'ColumnNames' => array("X1", "X2", "X3", "X4", "X5", "Y"),
+          'Values' => array( array($first , $second, $third, $fourth, $fifth, 0))
       ),
   ),
   'GlobalParameters'=> null
@@ -19,8 +21,8 @@ $data = array(
 
 $body = json_encode($data);
 
-$url = 'https://europewest.services.azureml.net/workspaces/1ce72f845b6d4b40a0c44018ce41c9aa/services/91fc5fbe91c54356b11a0cc5b072d56a/execute?api-version=2.0&details=true';
-$api_key = '22arKOvwZlcqU/K8qh77cyu3xwduj5XJsnVAzHiPalWf+f+bt6GTZcTxDJr/vOznG9KtTvloQplSXP0pbsZN3w=='; 
+$url = 'https://europewest.services.azureml.net/workspaces/1ce72f845b6d4b40a0c44018ce41c9aa/services/f72d0fb1e47d4b3fbdf1d2d1cb4b54ac/execute?api-version=2.0&details=true';
+$api_key = '6fdbBStLMO4EbSTC5eb7BfaeLd6XuB0ppzXnPLU8jPuVghrZQMtMTxjyU17vWrBKRnhwuJfp3VPCLLQga8K5eQ==';
 $headers = array('Content-Type: application/json', 'Authorization:Bearer ' . $api_key, 'Content-Length: ' . strlen($body));
 
 $this->responseArray['body'] = $body;
