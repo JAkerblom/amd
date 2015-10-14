@@ -84,7 +84,6 @@
 				$fourth = $_POST['fourth'];
 				$fifth  = $_POST['fifth'];
 			}
-			echo $first;
 			
 			$data = array(
 			  'Inputs'=> array(
@@ -105,8 +104,6 @@
 			$api_key = '6fdbBStLMO4EbSTC5eb7BfaeLd6XuB0ppzXnPLU8jPuVghrZQMtMTxjyU17vWrBKRnhwuJfp3VPCLLQga8K5eQ==';
 			$headers = array('Content-Type: application/json', 'Authorization:Bearer ' . $api_key, 'Content-Length: ' . strlen($body));
 			
-			$this->responseArray['body'] = $body;
-			
 			debug_to_console(strlen($body));
 			debug_to_console($this);
 			
@@ -118,8 +115,11 @@
 			
 			$result = curl_exec($curl);
 			
+			$percent = floor($result * 100);
+			
 			debug_to_console($result);
-			echo $result;
+			echo "<p>" . $result . "</p>";
+			#echo "<p>You are "$percent"% </p>;
 			
     	}
     }
