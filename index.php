@@ -96,6 +96,9 @@
 			  'GlobalParameters'=> null
 			);
 			
+			debug_to_console($first);
+			debug_to_console($data);
+			
 			$body = json_encode($data);
 			$url = 'https://europewest.services.azureml.net/workspaces/1ce72f845b6d4b40a0c44018ce41c9aa/services/f72d0fb1e47d4b3fbdf1d2d1cb4b54ac/execute?api-version=2.0&details=true';
 			$api_key = '6fdbBStLMO4EbSTC5eb7BfaeLd6XuB0ppzXnPLU8jPuVghrZQMtMTxjyU17vWrBKRnhwuJfp3VPCLLQga8K5eQ==';
@@ -138,6 +141,17 @@
     } else {
         echo "<h3>No one is currently registered.</h3>";
     }
+    
+    function debug_to_console( $data ) {
+
+		if ( is_array( $data ) )
+			$output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+		else
+			$output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+		echo $output;
+	}
+    
 ?>
 </body>
 </html>
