@@ -117,9 +117,9 @@
 			
 			$result = curl_exec($curl);
 			
-			echo curl_getinfo($ch) . '<br/>';
-			echo curl_errno($ch) . '<br/>';
-			echo curl_error($ch) . '<br/>';
+			echo curl_getinfo($result) . '<br/>';
+			echo curl_errno($result) . '<br/>';
+			echo curl_error($result) . '<br/>';
 			
 			var_dump($result);
 			
