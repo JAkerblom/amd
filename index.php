@@ -3,8 +3,8 @@
 	<Title>Registration Form</Title>
 	<script src="js/angular.js"></script>
 	<script src="js/app2.js"></script>
-	<script src="js/global.js"></script>
-	<script src="js/jquery.min.js"></script>
+	<!-- <script src="js/global.js"></script> -->
+<!--	<script src="js/jquery.min.js"></script> -->
 	<script src="http://www.nuget.org/packages/jQuery/1.8.2"></script>
 	
 	<!-- <link rel="stylesheet" href="css/bootstrap.css"></link> -->
@@ -36,7 +36,7 @@
       <input type="submit" name="submit" value="Submit" />
 	</form>
 
-	<form method="post" id="add" action=""> 
+	<form method="post" id="add" action="index.php"> 
 		First: <input type="text" name="first"></br>
         Second: <input type="text" name="second"></br> 
         Third: <input type="text" name="third"></br>
