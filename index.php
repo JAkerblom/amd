@@ -36,7 +36,7 @@
       <input type="submit" name="submit" value="Submit" />
 	</form>
 
-	<form method="post" id="add" action="js/mlexec.php"> 
+	<form method="post" id="add" action=""> 
 		First: <input type="text" name="first"></br>
         Second: <input type="text" name="second"></br> 
         Third: <input type="text" name="third"></br>
