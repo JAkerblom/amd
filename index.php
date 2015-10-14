@@ -112,6 +112,8 @@
 			curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			
+			debug_to_console($curl);
+			
 			$result = curl_exec($curl);
 			
 			$percent = floor($result * 100);
