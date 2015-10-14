@@ -108,9 +108,9 @@
 			
 			$curl = curl_init($url); 
 			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
-			curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			#curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+			#curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+			#curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			
 			debug_to_console($curl);
 			
