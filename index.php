@@ -112,6 +112,7 @@
 			$result = curl_exec($curl);
 			
 			echo $result;
+    	}
     }
     catch(Exception $e) {
         die(var_dump($e));
