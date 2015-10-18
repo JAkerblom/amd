@@ -1,7 +1,7 @@
 # amd
 Arbetsmarknadsdagarna
 
-```ruby
+```java
 GetAllAppointments (UserId?, startsdateandtime, enddateandtime) {
 	Return AppointmentId
 }
