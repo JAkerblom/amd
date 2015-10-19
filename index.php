@@ -37,11 +37,11 @@
 	</form>
 
 	<form method="post" id="add" action="js/mlexec.php"> 
-		First: <input type="text" name="first"></br>
-        Second: <input type="text" name="second"></br> 
-        Third: <input type="text" name="third"></br>
-        Fourth: <input type="text" name="fourth"></br>
-        Fifth: <input type="text" name="fifth"></br>
+		First: <input type="text" name="first" value=1></br>
+        Second: <input type="text" name="second" value=2></br> 
+        Third: <input type="text" name="third" value=3></br>
+        Fourth: <input type="text" name="fourth" value=4></br>
+        Fifth: <input type="text" name="fifth" value=5></br>
         <input type="submit" name="PredSubmit" value="Do calc">
 	</form>
 	<p name="out_par" id="out_par"></p>
