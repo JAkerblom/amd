@@ -36,7 +36,7 @@
       <input type="submit" name="UserSubmit" value="Submit" />
 	</form>
 
-	<form method="post" id="add" action="index.php"> 
+	<form method="post" id="add" action="js/mlexec.php"> 
 		First: <input type="text" name="first"></br>
         Second: <input type="text" name="second"></br> 
         Third: <input type="text" name="third"></br>
@@ -83,7 +83,7 @@
             die(var_dump($e));
         }
     }
-    if(!empty($_POST)) {
+    /*if(!empty($_POST)) {
         try {
             if(isset($_POST['PredSubmit'])) {   
                 if(isset($_POST['first'], $_POST['second'], $_POST['third'], $_POST['fourth'], $_POST['fifth'])) {
@@ -165,7 +165,7 @@
             die(var_dump($e));
         }
         //echo "<h3>Your're registered!</h3>";
-    }
+    }*/
     // Retrieve data
     $sql_select = "SELECT * FROM registration_tbl";
     $stmt = $conn->query($sql_select);
