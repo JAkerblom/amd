@@ -86,8 +86,8 @@
                     $fifth  = $_POST['fifth'];
                 }
 
-                //error_reporting(E_ALL);
-                //ini_set('display_errors', 1);
+                error_reporting(E_ALL);
+                ini_set('display_errors', 1);
 
                 $data = array(
                   'Inputs'=> array(
@@ -112,7 +112,7 @@
 
                 debug_to_console(strlen($body));
                 
-                $curl = curl_init();
+                /*$curl = curl_init();
                 curl_setopt($curl, CURLOPT_URL, $url);
                 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers;
                 curl_setopt($curl, CURLOPT_POST, 1);
@@ -124,8 +124,32 @@
 
                 curl_close($curl);
                             
-                var_dump($response);
-           
+                var_dump($response);*/
+                
+                $curl = curl_init($url); 
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+                curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+                debug_to_console(curl_exec($curl));
+                debug_to_console($curl);
+
+                $result = curl_exec($curl);
+
+                echo "curl_getinfo: " . curl_getinfo($result) . '<br/>';
+                echo "curl_errno: " . curl_errno($result) . '<br/>';
+                echo "curl_error: " . curl_error($result) . '<br/>';
+
+                echo "The var dump outputs the following: ";
+                var_dump($result);
+
+                $percent = floor($result * 100);
+
+                debug_to_console($result);
+                echo "<p>This is your result: " . $result . "</p>";
+                //echo "<p>You are "$percent"% </p>;
+                //header('Location: ');*/
             }
         }
         catch(Exception $e) {
