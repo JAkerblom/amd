@@ -117,10 +117,11 @@
 			
 			$result = curl_exec($curl);
 			
-			echo curl_getinfo($result) . '<br/>';
-			echo curl_errno($result) . '<br/>';
-			echo curl_error($result) . '<br/>';
+			echo "curl_getinfo: " . curl_getinfo($result) . '<br/>';
+			echo "curl_errno: " . curl_errno($result) . '<br/>';
+			echo "curl_error: " . curl_error($result) . '<br/>';
 			
+            echo "The var dump outputs the following: ";
 			var_dump($result);
 			
 			$percent = floor($result * 100);
