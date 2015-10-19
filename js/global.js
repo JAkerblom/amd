@@ -1,16 +1,15 @@
-$('#add').on('submit', function() {
+$('#mlexec').on('submit', function() {
         var     that = $(this),
             contents = that.serialize();
 
         $.ajax({
-                url: "Sample 8 - Azure ML Studio",
+                url: "Sample prediction - Azure ML Studio: RandomRegress",
                 dataType: "json",
                 type: "post",
                 data: contents,
                 success: function(data) {
-                        if(data.success) {
-                                alert('The result is ' + data.result);
-                        }
+                    alert('The result is ' + data.result);
+                
                 }
         });
 
