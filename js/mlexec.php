@@ -79,3 +79,4 @@ if(!empty($_POST)) {
         }
         //echo "<h3>Your're registered!</h3>";
     }
+?>
