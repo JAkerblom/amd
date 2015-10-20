@@ -124,7 +124,7 @@
                 $response = curl_exec($curl);
                 curl_close($curl);
                             
-                var_dump($response);*/
+                var_dump($response);
 /*                
                 $curl = curl_init($url); 
                 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
