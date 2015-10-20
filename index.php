@@ -76,12 +76,12 @@
                 $stmt->bindValue(2, $email);
                 $stmt->bindValue(3, $date);
                 $stmt->execute();
-                echo "<h3>Your're registered!</h3>";
             } 
         } 
         catch(Exception $e) {
             die(var_dump($e));
         }
+        echo "<h3>Your're registered!</h3>";
     }
     if(!empty($_POST)) {
         try {
@@ -116,49 +116,23 @@
                 $url = 'https://europewest.services.azureml.net/workspaces/1ce72f845b6d4b40a0c44018ce41c9aa/services/f72d0fb1e47d4b3fbdf1d2d1cb4b54ac/execute?api-version=2.0&details=true';
                 $api_key = '6fdbBStLMO4EbSTC5eb7BfaeLd6XuB0ppzXnPLU8jPuVghrZQMtMTxjyU17vWrBKRnhwuJfp3VPCLLQga8K5eQ==';
                 //$headers = array('Content-Type: application/json', 'Authorization:Bearer ' . $api_key, 'Content-Length: ' . strlen($body));
-                $headers = array('Content-Type: application/json', 'Authorization: Bearer '.$api_key, 'Accept: application/json'));
-                
+		$headers = array('Content-Type: application/json', 'Authorization:Bearer ' . $api_key, 'Content-Length: ' . strlen($body));
+
                 debug_to_console(strlen($body));
 
                 $curl = curl_init();
                 curl_setopt($curl, CURLOPT_URL, $url);
-                curl_setopt($curl, CURLOPT_HTTPHEADER, $headers;
+                curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
                 curl_setopt($curl, CURLOPT_POST, 1);
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); //Important for ssl communication between web-app server and prediction model server.
+                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
                 
-                $response = json_decode(curl_exec($curl), true);
+                //$response = json_decode(curl_exec($curl), true);
                 
+		        $response = curl_exec($curl);
                 curl_close($curl);
-                
                 var_dump($response);
-                
-                
-                //$curl = curl_init($url); 
-                //curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-                //curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
-                //curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-                //curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-                //debug_to_console(curl_exec($curl));
-                //debug_to_console($curl);
-
-                //$result = curl_exec($curl);
-
-                //echo "curl_getinfo: " . curl_getinfo($result) . '<br/>';
-                //echo "curl_errno: " . curl_errno($result) . '<br/>';
-                //echo "curl_error: " . curl_error($result) . '<br/>';
-
-                //echo "The var dump outputs the following: ";
-                //var_dump($result);
-
-                //$percent = floor($result * 100);
-
-                //debug_to_console($result);
-                //echo "<p>This is your result: " . $result . "</p>";
-                #echo "<p>You are "$percent"% </p>;
-                #header('Location: ');
             }
         }
         catch(Exception $e) {
