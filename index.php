@@ -112,7 +112,7 @@
 
                 debug_to_console(strlen($body));
                 
-                /*$curl = curl_init();
+                $curl = curl_init();
                 curl_setopt($curl, CURLOPT_URL, $url);
                 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers;
                 curl_setopt($curl, CURLOPT_POST, 1);
@@ -120,12 +120,12 @@
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); //Important for ssl communication between web-app server and prediction model server.
                 
-                $response = json_decode(curl_exec($curl), true);
-
+                //$response = json_decode(curl_exec($curl), true);
+                $response = curl_exec($curl);
                 curl_close($curl);
                             
                 var_dump($response);*/
-                
+/*                
                 $curl = curl_init($url); 
                 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
