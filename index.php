@@ -133,8 +133,9 @@
 		        $response = curl_exec($curl);
                 curl_close($curl);
                 var_dump($response);
-                $json = json_decode($response);
-                echo "This is the decoded JSON string: " . $json;
+                echo $json->Results->output1->value->Values[7];
+                //$json = json_decode($response, true);
+                //echo "This is the decoded JSON string: " . $json;
             }
         }
         catch(Exception $e) {
