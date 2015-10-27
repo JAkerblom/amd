@@ -206,7 +206,8 @@ label.radio {
 }
 
 label.radio:before {
-  background: #3aaf8b;
+  /*background: #3aaf8b;*/
+  background: #2ecc71;
   content:'';
   position: absolute;
   top:2px;
