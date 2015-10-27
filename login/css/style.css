@@ -270,7 +270,8 @@ input[type=radio]:checked + label:after {
   right:0;    
   height: 100%;  
   /*padding:10px 10px 15px 10px;*/
-  background:#449ef7;
+  /*background:#449ef7;*/
+  background: #2ecc71;
   -webkit-border-top-right-radius: 0px;
   -webkit-border-bottom-right-radius: 0px;
      -moz-border-radius-topright: 0px;
@@ -282,7 +283,7 @@ input[type=radio]:checked + label:after {
 }
 
 .main-drop span:hover {
-  background:#2675a9;
+  background: #3aaf8b;
 }
 
 .drop-wrap ul {
