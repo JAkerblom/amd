@@ -132,9 +132,10 @@
                 
 		        $response = curl_exec($curl);
                 curl_close($curl);
-                var_dump($response);
-                $json = json_decode($response, true);
-                echo $json->Results->output1->value->Values[7];
+                echo $response;
+                //echo "This is var_dump: " . var_dump($response);
+                $json = json_decode($response);
+                echo $json->Results->output1->value->Values;
                 //echo "This is the decoded JSON string: " . $json;
             }
         }

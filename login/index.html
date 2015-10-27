@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Forefront Arbetsmarknadsdagarna</title>
+    
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="js/index.js"></script>
+</head>
+<body>
+  
+  <div class="container main">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center title">
+      <!--<h1>Vilket affärsområde tillhör du?</h1>-->
+        <h1>Vill du veta vilket <br><span style="font-size:1.5em">affärsområde <br>DU tillhör?</span></h1>
+        <div class="bar"></div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 form accounttype">
+            <table style="width:100%">
+              <tr>
+                <td>
+                  <input type="radio" value="student" id="radioOne" name="typeofUser" checked="checked" />
+                  <label for="radioOne" class="radio" id="radioIcon">Student</label>
+                </td>
+                <td>
+                  <input type="radio" value="employee" id="radioTwo" name="typeofUser" />
+                  <label for="radioTwo" class="radio" id="radioIcon">Anställd</label>          
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 form">
+        <h2>Ange dina uppgifter</h2>
+        <input type="text" name="inputTwo" id="inputOne" tabindex="1" placeholder="namn"/><br/>
+        <input type="email" name="inputTwo" id="inputTwo" tabindex="2" placeholder="email"/><br/>
+        <p>
+        <div class="drop-wrap">
+          <div class="main-drop program" tabindex="3">
+            <div id="program_holder">Välj inriktning</div>
+            <span>
+              <img src="images/drop-down2.png" width="40px" height="40px" class="grayscale"/>
+            </span>
+          </div>
+          <div class="drop-list" id="student_list">
+            <ul id="student_ul">
+              <li class="progChoice" tabindex="4">Systemvetenskap</li>
+              <li class="progChoice" tabindex="5">Industriell Ekonomi</li>
+              <li class="progChoice" tabindex="6">Datavetenskap</li>
+              <li class="progChoice" tabindex="7">Elektro</li>
+            </ul>
+          </div> 
+
+          <div class="drop-list" id="employee_list">
+            <ul id=employee_ul>
+              <li class="progChoice" tabindex="4">Business Applications</li>
+              <li class="progChoice" tabindex="5">Business Design</li>
+              <li class="progChoice" tabindex="6">Business Solutions</li>
+              <li class="progChoice" tabindex="7">Business Transformation</li>
+            </ul>
+          </div>
+        </div>
+        </p>
+        <a href="#0" class="btn btn-default login">login</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
