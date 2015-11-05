@@ -8,10 +8,13 @@
 <!--	<script src="js/jquery.min.js"></script>-->
 <!--	<script src="http://www.nuget.org/packages/jQuery/1.8.2"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.css"></link>
+	
+    <script><?php echo "http://" . $_SERVER['SERVER_NAME'] . "</p><p>". $_SERVER['REQUEST_URI'] . "<p></p>" . $_SERVER['PHP_SELF']; ?>
+    </script>
+    <link rel="stylesheet" href="css/bootstrap.css"></link>
 </head>
 <body ng-app="MyApp">
-	<!--<p><?php echo "http://" . $_SERVER['SERVER_NAME'] . "</p><p>". $_SERVER['REQUEST_URI'] . "<p></p>" . $_SERVER['PHP_SELF']; ?></p>-->
+	<div class="wrapper">
     <h1>Register here!</h1>
 	<label for="checkbox">
         <input id="checkbox" type="checkbox" ng-model="visible">Toggle me
@@ -20,7 +23,7 @@
 		<p>Hello world!</p>
 	</div>
 	<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
-    
+    </div>
     
     // This form will be put in another page. Will be used for empl. questionnaire.
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" >

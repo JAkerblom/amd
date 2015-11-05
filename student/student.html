@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<Title>Ditt resultat!</Title>
+	
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <!-- If any common css styles is used -->
+  <!--<link rel="stylesheet" href="../css/style.css">-->
+  <!--<link rel="stylesheet" href="../css/bootstrap.css">-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/copyofstyle.css">
+  
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+  
+  <script src="data/data.json"></script>
+  
+  <script src="js/index.js"></script>
+  <script src="../js/angular.js"></script>
+	<script src="../js/global.js"></script>
+  
+  <style>
+    .drop-wrap {
+      margin-top: 5px;
+    }
+    .main-drop {
+      background: black;
+    }
+    .drop-list ul {
+      background: black !important;
+      color: white;
+    }
+    .col-md-6 {
+      position:relative;
+      min-height:1px;
+      padding-right:15px;
+      padding-left:15px;
+      float:left;
+      width:50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container main">    
+    <div class="col-md-6 test-form" style="display:none">
+      <div class="test-head">
+        <h1>Sådär <span id="user_name">Jonathan</span>. Redo att göra vårt lilla profileringstest!</h1>
+        <h2>Klicka i de områden som känns relevanta för dig i din utbildning och en framtida karriär.</h2>
+      </div>
+      <div class="test-subjects">
+        <input id="subject1" type="checkbox" />
+        <label for="subject1">sub1</label>
+        <input id="subject2" type="checkbox" />
+        <label for="subject2">sub1</label>
+        <input id="subject3" type="checkbox" />
+        <label for="subject3">sub1</label>
+        <input id="subject4" type="checkbox" />
+        <label for="subject4">sub1</label>
+        <input id="subject5" type="checkbox" />
+        <label for="subject5">sub1</label>
+        <h2 class="chosen" aria-hidden="true">Chosen</h2>
+        <h2 class="notchosen" aria-hidden="true">Not chosen</h2>
+      </div>
+      <!-- Test link for generating result -->
+      <a id="mlexec">Press this</a>
+    </div>  
+    
+    <!-- Consider reverting to custom css 
+    <!--  without col-md-6 
+    <!--==============================-->
+    <div class="col-md-6 result-head">
+      <h1>Grattis!</h1>
+      <h2>Du är med <span id="result-percent">85%</span> sannolikhet en <span id="result-area">Business Application</span>-konsult.</h2>
+      <h3>Klicka på fälten nedan för att få reda på mer information om ditt affärsområde.</h3>
+    </div>
+    
+    <!-- Dropdown Menu 
+    ==========================================-->
+    <div class="col-md-6 drop-section">
+      <div class="drop-wrap" id="area1">
+        <div class="main-drop area">
+          <span class="area_holder" id="area_holder1"></span><span class="drop_result" id="drop_result1">85%</span>
+        </div>
+        <div class="drop-list" id="area1_content">
+          <ul id="area1_list">
+            <li>
+              <img src="../images/lowres.jpg"/>
+              <h4 class="area_holder"></h4>
+              <p class="area_description"></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="drop-wrap" id="area2">
+        <div class="main-drop">
+          <span class="area_holder" id="area2_holder"></span>
+          <span class="drop_result" id="area2_result">65%</span>
+        </div>
+        <div class="drop-list" id="area2_content">
+          <ul id="area2_list">
+            <li>
+              <img src="../images/lowres.jpg"/>
+              <h4 class="area_holder"></h4>
+              <p class="area_description"></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="drop-wrap" id="area3">
+        <div class="main-drop area-head">
+          <span class="area_holder" id="area_holder3"></span>
+          <span class="drop_result" id="drop_result3">40%</span>
+        </div>
+        <div class="drop-list" id="area3_content">
+          <ul id="area3_list">
+            <li>
+              <img src="../images/lowres.jpg"/>
+              <h4 class="area_holder"></h4>
+              <p class="area_description"></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="drop-wrap" id="area4">
+        <div class="main-drop area-head">
+          <span class="area_holder" id="area4_holder"></span>
+          <span class="area_result" id="area4_result">35%</span>
+        </div>
+        <div class="drop-list" id="area4_content">
+          <ul id="area4_list">
+            <li>
+              <img src="../images/lowres.jpg"/>
+              <h4 class="area_holder"></h4>
+              <p class="area_description"></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a onclick="getInput()">Click</a>
+  </div>
+</body>
+</html>
+

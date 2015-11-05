@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<Title>Registration Form</Title>
+	<meta charset="utf-8">
+    <Title>Kompetensenkät</Title>
 	<script src="js/angular.js"></script>
 	<script src="js/app2.js"></script>
 	<!-- <script src="js/global.js"></script> -->
-<!--	<script src="js/jquery.min.js"></script>-->
-<!--	<script src="http://www.nuget.org/packages/jQuery/1.8.2"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css"></link>
 </head>
 <body ng-app="MyApp">
-	<!--<p><?php echo "http://" . $_SERVER['SERVER_NAME'] . "</p><p>". $_SERVER['REQUEST_URI'] . "<p></p>" . $_SERVER['PHP_SELF']; ?></p>-->
-    <h1>Register here!</h1>
-	<label for="checkbox">
+    <div class="wrapper">
+    <h1>Välkommen <span id="empName"></span>!</h1>
+	<p>För att hjälpa Forefront bli bättre på att hitta nya talanger behöver du bara fylla i det här formuläret.</p>
+    <p>Du ska markera de kompetens- eller intresseområden som är relevanta för dig i ditt dagliga arbete som en Forefront-konsult.</p>
+    <label for="checkbox">
         <input id="checkbox" type="checkbox" ng-model="visible">Toggle me
     </label>
 	<div show="visible">
 		<p>Hello world!</p>
 	</div>
-	<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
-    
-    
-    // This form will be put in another page. Will be used for empl. questionnaire.
-	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" >
-      Name  <input type="text" name="name" id="name"/></br>
-      Email <input type="text" name="email" id="email"/></br>
-      <input type="submit" name="UserSubmit" value="Submit" />
+	
+        
+        // Att lägga till som inlogg
+	<form method="post" id="emp_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" >
+      <input type="text" name="emp_name" id="emp_name" placeholder="Ditt namn"/></br>
+      <input type="email" name="emp_email" id="emp_email" placeholder="Din emailadress"/></br>
+      <input type="password" name="password" placeholder="password"/>
+      <input type="submit" name="EmpSubmit" value="Skicka" />
 	</form>
     
     //
@@ -38,6 +39,7 @@
         Fifth: <input type="text" name="fifth" value=5></br>
         <input type="submit" name="PredSubmit" value="Do calc">
 	</form>
+    </div>
 	<p name="out_prob" id="out_prob">
         <?php include('php/mlexec.php'); ?>    
     </p>

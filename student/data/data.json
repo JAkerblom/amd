@@ -1,0 +1,165 @@
+/* Change this json according to the event
+  -> Images of relevant people
+      attending the event can be put into
+      the '/images/' folder. (change name)
+  -> The name of the person that each 
+      picture illustrates can be stated
+  -> The area description can be changed
+      as well to be up to date.
+================================== */
+var areas = {
+  'BA': [
+    {
+      'id':'BA',
+      'title':'Business Application',
+      'image_name':'lowres.jpg',
+      'image_person':'Jonathan Åkerblom',
+      'description':'Bla bla business application bla bla dolor sit amet, consectetur adipisicing elit. Et illo illum vel vero veniam blanditiis laboriosam animi labore atque accusantium amet excepturi voluptates perspiciatis doloribus ipsum harum nobis quam reiciendis.'
+    }
+  ],
+  'BD': [
+    {
+      'id':'BD',
+      'title':'Business Design',
+      'image_name':'lowres.jpg',
+      'image_person':'Jonathan Åkerblom',
+      'description':'Bla bla Business Dessisajn är bra, sectetur adipisicing elit. Et illo illum vel vero veniam blanditiis laboriosam animi labore atque accusantium amet excepturi voluptates perspiciatis doloribus ipsum harum nobis quam reiciendis.'
+    }
+  ],
+  'BS': [
+    {
+      'id':'BS',
+      'title':'Business Solution',
+      'image_name':'lowres.jpg',
+      'image_person':'Jonathan Åkerblom',
+      'description':'Ploj ploj Bull Shit dolor sit amet, consectetur adipisicing elit. Et illo illum vel vero veniam blanditiis laboriosam animi labore atque accusantium amet excepturi voluptates perspiciatis doloribus ipsum harum nobis quam reiciendis.'
+    }
+  ],
+  'BT': [
+    {
+      'id':'BT',
+      'title':'Business Transformation',
+      'image_name':'lowres.jpg',
+      'image_person':'Jonathan Åkerblom',
+      'description':'Digital Transformering bla bla sit amet, consectetur adipisicing elit. Et illo illum vel vero veniam blanditiis laboriosam animi labore atque accusantium amet excepturi voluptates perspiciatis doloribus ipsum harum nobis quam reiciendis.'
+    }
+  ]
+};
+
+/* Insert university programs to 
+    list in the start view.
+================================ */
+var programs = {
+  'prognames': [
+    'Systemvetenskap',
+    'Industriell Ekonomi',
+    'Datavetenskap',
+    'Elektro'
+  ]
+};
+
+/* Insert subjects. OBS! Must be
+    one of the predictors used in
+    the Azure ML model.
+================================ */
+var subjects = {
+  'subnames': [
+    {
+      '1':'Projektledning',
+      '2':'Interaktionsdesign (UX/UI)',
+      '3':'Webb/applikationsutvckling',
+      '4':'Processmodellering/utveckling',
+      '5':'BI & prediktiv analys',
+      '6':'Verksamhetsanalys/utveckling',
+      '7':'Kravanalys & kravhantering',
+      '8':'Utbildning, workshops & coaching',
+      '9':'Informations- & datamodellering',
+      '10':'Systemutveckling & affärssystem',
+      '11':'Förändringsledning',
+      '12':'IT-strategi',
+      '13':'Behovs-, marknads-, & riskanalys,',
+      '14':'Testledning',
+      '15':'Systemarkitektur',
+    }
+  ],
+  /*'subnames': [
+    {
+      '1':['Projektledning','X1'],
+      '2':['UX/UI','X2'],
+      '3':['Mjukvaruutveckling','X3'],
+      '4':['Processmodellering','X4'],
+      '5':['Systemarkitektur','X5']
+    }
+  ],*/
+  
+  /* Use sub short to make nomenclature
+  towards azure easier to handle.
+    -> We use .inArray() to find index
+    and to find subject title string. 
+    -> parseInt(subnames[0] key)*/
+  'subshort': [
+    'X1',
+    'X2',
+    'X3',
+    'X4',
+    'X5'
+  ]
+};
+
+/* Manipulate this json according to the
+    ML model set up with azure.
+  In this test example five predictors
+  are used and a binary output is expected.
+  -> With this the json request body can
+  be built fairly easily.
+================================ */
+var model = {
+  'predictors': [
+    {
+      'names': ['X1', 'X2', 'X3', 'X4', 'X5'],
+      'howmany': 5, //Use to count up with input array
+      'values': [
+        {
+          'X1':'',
+          'X2':'',
+          'X3':'',
+          'X4':'',
+          'X5':''
+        }
+      ]
+    }
+  ],
+  'response': [
+    {
+      'name': ['Y', 'BA', 'BD', 'BS', 'BT'],
+      'values': ['X0', 'X1'],
+      'howmany': 2 //Use to count up with input array
+    }
+  ]
+};
+
+/* Manipulate this json according to the
+    output that you wish to handle. 
+  A function builds this json after success
+  so that its easier to handle the results.
+================================ */
+var result = {
+  'areascores': [
+    {
+      'BA': 0,
+      'BD': 0,
+      'BS': 0,
+      'BT': 0
+    }
+  ],
+  'dropRelation': [
+    {
+      'area1': 'BA', // Set to '' later
+      'area2': 'BS',
+      'area3': 'BD',
+      'area4': 'BT'
+    }
+  ]
+};
+  
+

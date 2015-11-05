@@ -1,19 +1,11 @@
-$('#add').on('submit', function() {
-        var     that = $(this),
-            contents = that.serialize();
+var app = angular.module("MyApp", []);
 
-        $.ajax({
-                url: "Sample 8 - Azure ML Studio",
-                dataType: "json",
-                type: "post",
-                data: contents,
-                success: function(data) {
-                        if(data.success) {
-                                alert('The result is ' + data.result);
-                        }
-                }
-        });
-
-        return false;
+app.directive("show", function() {
+	return {
+		link: function(scope, element, attributes) {
+			scope.$watch(attributes.show, function(value) {
+				element.css('display', value ? '' : 'none');
+			});
+		}
+	};
 });
-
