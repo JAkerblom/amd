@@ -101,7 +101,7 @@ $(document).ready(function(e) {
     
     /* The ajax call to dbexec_empl.php */
     $.ajax({
-      url: "/amd/php/dbexec_empl.php",
+      url: "/php/dbexec_empl.php",
       type: "post",
       data: json,
       success: function(data) {
