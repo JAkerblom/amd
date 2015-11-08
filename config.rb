@@ -7,6 +7,7 @@ sass_dir = "scss"
 images_dir = "images"
 javascripts_dir = "js"
 fonts_dir = "fonts"
+data_dir = "data"
 
 output_style = :expanded
 
