@@ -1,45 +1,3 @@
-/* The drop-downs of area description 
-    and picture. 'On click'
-================================= */
-$(document).ready(function(e) {
-  $('.main-drop').on('click', function() {
-    var areaDropPressed = $(this).parent().attr('id');
-    closeAllSliders();
-    
-    //Try to populate divs with title first when result has been given. Then when div is pressed you can populate with paragraph title and description, + image
-    
-    //var identifier = 'BS';
-    console.log($.type(result['dropRelation'][0][areaDropPressed]));
-    var areaToGet = result['dropRelation'][0][areaDropPressed];
-    console.log('The area to get: ' + areaToGet);
-    
-    // The list to fill with picture, and
-    //  various area information
-    var ul = '#' + areaDropPressed + '_list';
-    var areaDesc = $(ul).find(' .area_description');
-    var areaHolder = $(this).find('area_holder');
-    if ($(ul).css('display') === 'none') {
-      $(ul).slideToggle();
-      replaceDescr(areaDesc, areaToGet);
-      replaceTitle(areaHolder, areaToGet);
-    }
-  });
-});
-
-/* Helper function to drop downs 
-    -> Closes all open slides so that
-       when pressing new slide, other
-       open sliders are closed.
-================================= */
-function closeAllSliders() {
-  $('.drop-wrap ul').each(function(index) {
-    if ($(this).css('display') === 'block') 
-    {
-      $(this).slideToggle();
-    }
-  });
-}
-
 /* Helper function to insert area
     description in the paragraph that
     it is destined to reside by id
@@ -56,59 +14,12 @@ function replaceTitle(obj, id) {
 }
 
 
-/* getResults to pass the user input 
-    form data to PHP script (via ajax)
-  -> This PHP script in turn makes a 
-  CURL call to the Azure ML web service.
-  -> Returns response body which is stored
-  in a global variable result (data.json).
-================================= */
-$(document).ready(function getResults($arr) {
-  $response = '';
-  $('#mlexec').on('click', function() {
-    console.log('Du klickade');
-    
-    // Lägger till body så att man kan fånga json-variabeln med denna i $_POST.
-    // Man kan säkert även lägga till andra variabler för det man kan tänka sig skicka med i POSTen.
-    var json = buildJSON('');
-    console.log(json);
-    json = JSON.parse(json);
-    
-    /* The ajax call to mlexec2.php */
-    $.ajax({
-      url: "/amd/php/mlexec2.php",
-      type: "post",
-      data: json,
-      success: function(data) { // data arrives as a string
-        console.log("This is response from azure: " + data);
-        var obj = JSON.parse(data); // Parse to JSON object
-        
-        $response = obj.Results.output1.value.Values[0][7];
-        //$response = obj.Results.output1.value.Values[0];
-        $resultArr = [];
-        var probStart = model.predictors[0]['howmany'] + model.response[0]['howmany'];
-        console.log(probStart);
-        /*$.each($response, function(index, value) {
-          if (index > probStart) {
-            $resultArr.push($response[index])
-          }
-        });*/
-      
-        setResults($response);
-      },
-      error: function() {
-        console.log('an error occurred.');
-      }
-    });
-  });
-});
 
 /* Use the response and set global 
     json variables.
   Goal is to set 'areascores' with 
     the probabilities, as well to
-    set 
-    
+    set  
 =================================== */
 function setResults(response) {
   // Set areascores
@@ -129,18 +40,42 @@ function setResults(response) {
 function buildJSON(input) {
   // JSON body parts
   var jsonparts = {
-    'start':'{"body":{"Inputs":{"input1":{"ColumnNames":[', 
-    'middle':'],"Values":[[', 
-    'end':']]}},"GlobalParameters":{}}}'
+    str:'{"empl_input":{"credentials":{',
+    str:'"name":, "email":, "busarea":',
+    str:'},"subjects":{}',
+  }
+  var json = {
+    "empl_input":
+    {
+      "credentials":
+      {
+        "name":"", 
+        "email":"", 
+        "busarea":"",
+      },
+      "subjects":
+      {
+      }
+    }
   };
+  
+  /*var json = {
+    str = '"empl_input":{"credentials":{"name":"", 
+        "email":"", 
+        "busarea":"",
+      },
+      "subjects":
+      {
+      }
+    }
+  };*/
   
   // JSON string start here
   var str = jsonparts['start'];
   
   // Predictor names from (data.json)
-  var preds = model['predictors'][0]['names'];
-  // For now only binary class predict (1 col)
-  preds.push(model['response'][0]['name'][0]);
+  //var preds = model['predictors'][0]['names'];
+  //preds.push(model['response'][0]['name'][0]);
   
   // For later:
   //Use index to retrieve the name for the model to run. 
@@ -148,7 +83,7 @@ function buildJSON(input) {
   
   // Array: Inputed data from the form
   var data = input;
-  var data = ["1", "2", "3", "4", "5", "0"];
+  var data = ["1", "0", "1", "0", "1", "1", "0", "1", "0", "1", "1", "0", "1", "0", "1", "0"];
   
   // Build json string with predictor names
   //  and input values.
@@ -169,23 +104,68 @@ function buildJSON(input) {
   return str;
 }
 
+$(document).ready(function(e) {
+  var i = 1;
+  $items = $('.items')
+  $.each(models.predictors[0], function(key, item) {
+    $items.append('<input id="item' + i + '" type="checkbox" value="' + item.short + '">');
+    $items.append('<label for="item' + i + '">' + item.name + '</label>');
+    i = i + 1
+  });
+  $items.append('<h2 class="done" aria-hidden="true">Valda områden</h2>');
+  $items.append('<h2 class="undone" aria-hidden="true">Ej valda områden</h2>');
+});
+
+$(document).on('click', 'label', function (e) {
+  var itemnr = $(this).attr('for');
+  $inputSibling = $(this).parent().find('#' + itemnr);
+  $willbeValue = $inputSibling[0].checked;
+  $subject = $inputSibling.attr('value');
+  $isValue = models.predictors[0][$subject]['value'];
+  models.predictors[0][$subject]['value'] = ($isValue && $willbeValue) ? false : true;
+  //console.log(models.predictors[0][$subject]['name'] + " is now " + models.predictors[0][$subject]['value']);
+});
+  
+/* Pass the employee input form data to PHP script (via ajax)
+  -> This PHP script in turn makes a 
+  PDO db access to a Azure MySQL db.
+================================= */
+$(document).ready(function(e) {
+  $('#dbexec').on('click', function() {
+    var json = buildJSON(getInput());
+    console.log(json);
+    json = JSON.parse(json);
+    
+    /* The ajax call to dbexec_empl.php */
+    $.ajax({
+      url: "/amd/php/dbexec_empl.php",
+      type: "post",
+      data: json,
+      success: function(data) {
+        console.log('Succeded with storing employee input data.');
+      },
+      error: function() {
+        console.log('Failed to store data.');
+      }
+    });
+  });
+});
+
+// Depr: Not used currently, might be useful later
+//  if SESSION variables are used. 
 function getInput() {
   var inData = [];
-  
-  var lengthOfSubs = model.predictors[0]['howmany'];
-  var subdiv = $('.test-subjects');
-  var boxArr = subdiv[0].children;
-  //var boxArr = subdiv[0].children.splice(0,2);
-  $.each(boxArr, function(index, value) {
-    if (index < 2*lengthOfSubs) {
-      if (index % 2 === 0) {
-        console.log(index + ": " + this.checked);
-      } else {
-        console.log(index + ": " + this.htmlFor);
-      }
+  //$lengthOfSubs = model.predictors[0].names.length;
+  $lengthOfSubs = Object.keys(models.predictors[0]).length;
+  $items = $('.items')[0].children;
+  $.each($items, function(index, value) {
+    if (!$(this).is('h2') && index % 2 === 0) {
+      //console.log(index + ": " + this.checked);
+      inData.push(this.checked);  
+      var val = this.value;
+      //model.predictors[0].values[0][val] = this.checked;
+      models.predictors[0][val] = this.checked;
     }
   });
-  //inData.push();
+  return inData;
 }
-
-

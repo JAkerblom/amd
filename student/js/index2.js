@@ -1,89 +1,193 @@
-/*jslint browser: true*/
-/*global $, jQuery, alert*/
-
-$(document).ready(function (e) {
-  $('.drop-wrap').on('click', function () {
-    if (isStudent()) {
-      console.log('It was a student, showing student list.');
-      $('#student_list ul').slideToggle();
-    } else {
-      console.log('It was an employee, ...');
-      $('#employee_list ul').slideToggle();
+/* The drop-downs of area description 
+    and picture. 'On click'
+================================= */
+$(document).ready(function(e) {
+  $('.main-drop').on('click', function() {
+    var areaDropPressed = $(this).parent().attr('id');
+    closeAllSliders();
+    
+    // Try to populate divs with title first when result has been given. 
+    // Then when div is pressed you can populate with paragraph 
+    //  title and description, + image
+    
+    //var identifier = 'BS';
+    console.log($.type(result['dropRelation'][0][areaDropPressed]));
+    var areaToGet = result['dropRelation'][0][areaDropPressed];
+    console.log('The area to get: ' + areaToGet);
+    
+    // The list to fill with picture, and
+    //  various area information
+    var ul = '#' + areaDropPressed + '_list';
+    var areaDesc = $(ul).find(' .area_description');
+    var areaHolder = $(this).find('area_holder');
+    if ($(ul).css('display') === 'none') {
+      $(ul).slideToggle();
+      replaceDescr(areaDesc, areaToGet);
+      replaceTitle(areaHolder, areaToGet);
     }
   });
 });
 
-$(function () {
-  $('.program').keyup(function (e) {
-    if (e.which === 13) {   //Enter key was pressed
-      $('.drop-wrap').trigger('click');
+/* Helper function to drop downs 
+    -> Closes all open slides so that
+       when pressing new slide, other
+       open sliders are closed.
+================================= */
+function closeAllSliders() {
+  $('.drop-wrap ul').each(function(index) {
+    if ($(this).css('display') === 'block') 
+    {
+      $(this).slideToggle();
     }
   });
-});
-
-
-  // When choice in dropdown is chosen it replaces text in drop div
-function placeText(obj, str) {
-  var placeholder = document.getElementById('program_holder');
-  if (!str) {
-    var element = obj;
-    placeholder.innerHTML = element.context.innerHTML;
-  } else {
-    var text = str;
-    placeholder.innerHTML = text;
-  }
 }
-$(document).ready(function (e) {
-  $('.progChoice').on('click', function (e) {
-    placeText($(this));
-  });
-});
 
-
-    // When type of user is chosen via radio buttons, i.e. changed from 
-    //  automatic choice of student, then the form content is changed.
-$(document).ready(function (e) {
-  var $typeofUser = $('input:radio[name=typeofUser]');
-  $typeofUser.on('change', function () {
-    
-    // Get all elements to change
-    var $inputOne = $('#inputOne'), $inputTwo = $('#inputTwo'), $droplist = $('#program_holder');
-    
-    // Check which type of user that was changed into.
-    if (isStudent()) {
-      console.log("Changed to student");
-      $inputOne.attr('placeholder', 'namn');
-      $inputOne.attr('type', 'text');
-      $inputTwo.attr('placeholder', 'email');
-      $inputTwo.attr('type', 'email');
-      
-      placeText(null, 'Välj inriktning');
-    } else {
-      console.log("Changed to employee");
-      $inputOne.attr('placeholder', 'email');
-      $inputOne.attr('type', 'email');
-      $inputTwo.attr('placeholder', 'lösenord');
-      $inputTwo.attr('type', 'password');
-      
-      placeText(null, 'Din affärsområdestillhörighet');
-    }
-    
-    var stud_uldisp = $('#student_ul').css('display');
-    var empl_uldisp = $('#employee_ul').css('display');
-    if (isStudent() && (empl_uldisp === 'block')) {
-      $('#employee_list ul').slideToggle();
-    } else if (!isStudent() && (stud_uldisp === 'block')) {
-      $('#student_list ul').slideToggle();
-    }
-  });
-});
-
-function isStudent() {
-  var isStudent = true;
-  var $typeofUser = $('.accounttype :input');
-  if (!$typeofUser[0]['checked']) {
-    isStudent = false;
-  }
-  return isStudent;
+/* Helper function to insert area
+    description in the paragraph that
+    it is destined to reside by id
+================================= */
+function replaceDescr(obj, id) {
+  var descr = areas[id][0]['description'];
+  obj.html(descr);
 }
+
+function replaceTitle(obj, id) {
+  var title = areas[id][0]['title'];
+  console.log(obj);
+  obj.html(title);
+}
+
+
+/* getResults to pass the user input 
+    form data to PHP script (via ajax)
+  -> This PHP script in turn makes a 
+  CURL call to the Azure ML web service.
+  -> Returns response body which is stored
+  in a global variable result (data.json).
+================================= */
+$(document).ready(function getResults($arr) {
+  $response = '';
+  $('#mlexec').on('click', function() {
+    console.log('Du klickade');
+    
+    // Lägger till body så att man kan fånga json-variabeln med denna i $_POST.
+    // Man kan säkert även lägga till andra variabler för det man kan tänka sig skicka med i POSTen.
+    var json = buildJSON('');
+    console.log(json);
+    json = JSON.parse(json);
+    
+    /* The ajax call to mlexec.php */
+    $.ajax({
+      url: "/amd/php/mlexec.php",
+      type: "post",
+      data: json,
+      success: function(data) { // data arrives as a string
+        console.log("This is response from azure: " + data);
+        var obj = JSON.parse(data); // Parse to JSON object
+        
+        $response = obj.Results.output1.value.Values[0][7];
+        $resultArr = [];
+        var probStart = model.predictors[0]['howmany'] + model.response[0]['howmany'];
+        console.log(probStart);
+        /*$.each($response, function(index, value) {
+          if (index > probStart) {
+            $resultArr.push($response[index])
+          }
+        });*/
+      
+        setResults($response);
+      },
+      error: function() {
+        console.log('an error occurred.');
+      }
+    });
+  });
+});
+
+/* Use the response and set global 
+    json variables.
+  Goal is to set 'areascores' with 
+    the probabilities, as well to
+    set 
+    
+=================================== */
+function setResults(response) {
+  // Set areascores
+  result['areascores'][0]['BA'] = parseFloat($response[0]);
+  result['areascores'][0]['BD'] = parseFloat($response[0])-0.15;
+  result['areascores'][0]['BS'] = parseFloat($response[0])+0.15;
+  result['areascores'][0]['BT'] = parseFloat($response[0])-0.6;
+  
+  // Set dropRelation
+  var tmpRes = ['0.07', '0.723', '0.542'];
+  result['dropRelation'][0]['area1'] = '';
+}
+
+/* Helper function that builds the json 
+    request body from the global variable
+    -> 'model' (data.json).
+================================== */
+function buildJSON(input) {
+  // JSON body parts
+  var jsonparts = {
+    'start':'{"body":{"Inputs":{"input1":{"ColumnNames":[', 
+    'middle':'],"Values":[[', 
+    'end':']]}},"GlobalParameters":{}}}'
+  };
+  
+  // JSON string start here
+  var str = jsonparts['start'];
+  
+  // Predictor names from (data.json)
+  var preds = model['predictors'][0]['names'];
+  // For now only binary class predict (1 col)
+  //  Will later adjust for how the API documentation looks like
+  preds.push(model['response'][0]['name'][0]);
+  
+  // For later:
+  //Use index to retrieve the name for the model to run. 
+  //preds.push(model['response'][0]['name'][index]);
+  
+  // Array: Inputed data from the form
+  var data = input;
+  var data = ["1", "0", "1", "0", "1", "1", "0", "1", "0", "1", "1", "0", "1", "0", "1", "0"];
+  
+  // Build json string with predictor names
+  //  and input values.
+  $.each(preds, function(index, value) {
+    if (!(index === preds.length-1)) {
+      str += '"' + value + '"' + ',';
+    } else {
+      str += '"' + value + '"' + jsonparts['middle'];
+    }
+  });
+  $.each(data, function(index, value) {
+    if (!(index === data.length-1)) {
+      str += '"' + value + '"' + ',';
+    } else {
+      str += '"' + value + '"' + jsonparts['end'];
+    }
+  });
+  return str;
+}
+
+function getInput() {
+  var inData = [];
+  
+  var lengthOfSubs = model.predictors[0]['howmany'];
+  var subdiv = $('.test-subjects');
+  var boxArr = subdiv[0].children;
+  //var boxArr = subdiv[0].children.splice(0,2);
+  $.each(boxArr, function(index, value) {
+    if (index < 2*lengthOfSubs) {
+      if (index % 2 === 0) {
+        console.log(index + ": " + this.checked);
+      } else {
+        console.log(index + ": " + this.htmlFor);
+      }
+    }
+  });
+  //inData.push();
+}
+
 

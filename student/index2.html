@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Checkbox Trickery: To-Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style2.css"> 
+    
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    
+    <script src="../data/data.json"></script>
+    <script src="js/index.js"></script>
+    
+    <style>
+      body {
+        background: #f58421;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!--
+  Checkbox Trickery with CSS:
+  http://codersblock.com/blog/checkbox-trickery-with-css/ 
+-->
+
+<div class="container">
+  <h1>Redo för testet <span class="stud_name">Jonathan</span>?</h1>
+  <h3>Välj de områden som känns relevanta för dig i din utbildning och/eller en framtida karriär.</h3>
+  <div class="items">
+    <input id="item1" type="checkbox">
+    <label for="item1">Projektledning</label>
+
+    <input id="item2" type="checkbox">
+    <label for="item2">UX/UI</label>
+
+    <input id="item3" type="checkbox">
+    <label for="item3">Mjukvaruutvckling</label>
+
+    <input id="item4" type="checkbox">
+    <label for="item4">Processmodellering</label>
+
+    <input id="item5" type="checkbox">
+    <label for="item5">Systemarkitektur</label>
+
+    <h2 class="done" aria-hidden="true">Valda områden</h2>
+    <h2 class="undone" aria-hidden="true">Ej valda områden</h2>
+  </div>
+</div>
+    
+    
+    
+    
+    
+  </body>
+</html>

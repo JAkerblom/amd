@@ -46,12 +46,21 @@ var areas = {
   ]
 };
 
+/* Insert user credentials
+================================ */
+var credentials = {
+  name:'',
+  email:'',
+  busArea:'',
+  program:''
+};
+
 /* Insert university programs to 
     list in the start view.
 ================================ */
-var programs = {
+/*var programs = {
   'prognames': [
-    'Arkitekt',
+    'Arkitektutbildningen',
     'Bioteknik',
     'Brandingenjör',
     'Datateknik',
@@ -68,14 +77,124 @@ var programs = {
     'Systemvetenskap',
     'Teknisk fysik/matematik',
     'Väg och vatten'
+  ],
+  'progshort': [
+    'arkitekt',
+    'bioteknik',
+    'brandingenjör',
+    'datateknik',
+    'ekonomi',
+    'eko',
+    'elektro',
+    'industridesign',
+    'indek',
+    'infokom',
+    'kemi',
+    'lant',
+    'livsmedel',
+    'maskin',
+    'systemvetenskap',
+    'teknisk',
+    'vagvatten'
   ]
+};*/
+
+var programs = {
+  'progs':
+  {
+    'arkitekt':
+    {
+      name:'Arkitektutbildningen', 
+      short:'arkitekt'
+    },
+    'bioteknik':
+    {
+      name:'Bioteknik', 
+      short:'bioteknik', 
+    },
+    'brandingenjor':
+    {
+      name:'Brandingenjör', 
+      short:'brandingenjor', 
+    },
+    'datateknik':
+    {
+      name:'Datateknik', 
+      short:'datateknik', 
+    },
+    'ekonomi':
+    {
+      name:'Ekonomi', 
+      short:'ekonomi', 
+    },
+    'eko':
+    {
+      name:'Ekosystemteknik', 
+      short:'eko', 
+    },
+    'elektro':
+    {
+      name:'Elektroteknik', 
+      short:'elektro', 
+    },
+    'industridesign':
+    {
+      name:'Industridesign', 
+      short:'industridesign', 
+    },
+    'indek':
+    {
+      name:'Industriell Ekonomi', 
+      short:'indek', 
+    },
+    'infokom':
+    {
+      name:'Informations- och kommunkikationsteknik', 
+      short:'infokom', 
+    },
+    'kemi':
+    {
+      name:'Kemiteknik', 
+      short:'kemi', 
+    },
+    'lant':
+    {
+      name:'Lantmäteri', 
+      short:'lant', 
+    },
+    'livsmedel':
+    {
+      name:'Livsmedelsteknik', 
+      short:'livsmedel', 
+    },
+    'maskin':
+    {
+      name:'Maskinteknik', 
+      short:'maskin', 
+    },
+    'systemvetenskap':
+    {
+      name:'Systemvetenskap', 
+      short:'systemvetenskap', 
+    },
+    'teknisk':
+    {
+      name:'Teknisk fysik/matematik', 
+      short:'teknisk', 
+    },
+    'vagvatten':
+    {
+      name:'Väg och vatten', 
+      short:'vagvatten', 
+    }
+  }
 };
 
 /* Insert subjects. OBS! Must be
     one of the predictors used in
     the Azure ML model.
 ================================ */
-var subjects = {
+/*var subjects = {
   'subnames': [
     {
       '1':'Projektledning',
@@ -95,22 +214,13 @@ var subjects = {
       '15':'Systemarkitektur',
     }
   ],
-  /*'subnames': [
-    {
-      '1':['Projektledning','projektledn'],
-      '2':['UX/UI','X2'],
-      '3':['Mjukvaruutveckling','X3'],
-      '4':['Processmodellering','X4'],
-      '5':['Systemarkitektur','X5']
-    }
-  ],*/
-  
-  /* Use sub short to make nomenclature
-  towards azure easier to handle.
-    -> We use .inArray() to find index
-    and to find subject title string. 
-    -> parseInt(subnames[0] key)*/
-  'subshort': [
+
+  //Use sub short to make nomenclature
+  //towards azure easier to handle.
+  //  -> We use .inArray() to find index
+  //  and to find subject title string. 
+  //  -> parseInt(subnames[0] key)
+    'subshort': [
     'projektledn',
     'interaktionsdesign',
     'webbutv',
@@ -127,7 +237,7 @@ var subjects = {
     'testledn',
     'systemarkitektur'
   ]
-};
+};*/
 
 /* Manipulate this json according to the
     ML model set up with azure.
@@ -136,7 +246,105 @@ var subjects = {
   -> With this the json request body can
   be built fairly easily.
 ================================ */
-var model = {
+var models = {
+  'predictors': [
+    {
+      'projektledn':
+      {
+        name:'Projektledning', 
+        short:'projektledn', 
+        value:false
+      },
+      'interaktionsdesign':
+      {
+        name:'Interaktionsdesign (UX/UI)', 
+        short:'interaktionsdesign', 
+        value:false
+      },
+      'webbutv':
+      {
+        name:'Webb/applikationsutvckling', 
+        short:'webbutv', 
+        value:false
+      },
+      'processutv':
+      {
+        name:'Processmodellering/utveckling', 
+        short:'processutv', 
+        value:false
+      },
+      'BIanalytics':
+      {
+        name:'BI & prediktiv analys', 
+        short:'BIanalytics', 
+        value:false
+      },
+      'verksamhetsutv':
+      {
+        name:'Verksamhetsanalys/utveckling', 
+        short:'verksamhetsutv', 
+        value:false
+      },
+      'kravanalys':
+      {
+        name:'Kravanalys & kravhantering', 
+        short:'kravanalys', 
+        value:false
+      },
+      'utbildning':
+      {
+        name:'Utbildning, workshops & coaching', 
+        short:'utbildning', 
+        value:false
+      },
+      'infomod':
+      {
+        name:'Informations- & datamodellering', 
+        short:'infomod', 
+        value:false
+      },
+      'systemutveckling':
+      {
+        name:'Systemutveckling & affärssystem', 
+        short:'systemutveckling', 
+        value:false
+      },
+      'forandringsledn':
+      {
+        name:'Förändringsledning', 
+        short:'forandringsledn', 
+        value:false
+      },
+      'ITstrategi':
+      {
+        name:'IT-strategi', 
+        short:'ITstrategi',
+        value:false
+      },
+      'behovsanalys':
+      {
+        name:'Behovs-, marknads-, & riskanalys', 
+        short:'behovsanalys', 
+        value:false
+      },
+      'testledn':
+      {
+        name:'Testledning', 
+        short:'testledn', 
+        value:false
+      },
+      'systemarkitektur':
+      {
+        name:'Systemarkitektur', 
+        short:'systemarkitektur', 
+        value:false
+      },
+    }
+  ]
+}
+  
+// Deprecated model, use models instead
+/*var model = {
   'predictors': [
     {
       'names': [
@@ -185,7 +393,7 @@ var model = {
       'howmany': 2 //Use to count up with input array
     }
   ]
-};
+};*/
 
 /* Manipulate this json according to the
     output that you wish to handle. 
@@ -193,20 +401,20 @@ var model = {
   so that its easier to handle the results.
 ================================ */
 var result = {
-  'areascores': [
+  areascores: [
     {
-      'BA': 0,
-      'BD': 0,
-      'BS': 0,
-      'BT': 0
+      BA: 0,
+      BD: 0,
+      BS: 0,
+      BT: 0
     }
   ],
-  'dropRelation': [
+  dropRelation: [
     {
-      'area1': 'BA', // Set to '' later
-      'area2': 'BS',
-      'area3': 'BD',
-      'area4': 'BT'
+      area1: 'BA', // Set to '' later
+      area2: 'BS',
+      area3: 'BD',
+      area4: 'BT'
     }
   ]
 };

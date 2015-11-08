@@ -1,5 +1,11 @@
+<?php 
+session_start();
+session_name('login');
+ 
+?>
 <!DOCTYPE html>
 <html >
+  <!-- Here is my other comment -->
   <head>
     <meta charset="UTF-8">
     <title>Checkbox Trickery: To-Do List</title>
@@ -20,9 +26,10 @@
 </head>
 <body>
   <div class="container">
-     <h1>Redo för testet <span class="stud_name"></span><?=$_SESSION['user_name']>?</h1>
-    <!-- <?php echo $_SESSION['name']; ?> -->
-  <h3>Välj de områden som känns relevanta för dig i din utbildning och/eller en framtida karriär.</h3>
+    <p>Detta: <?php $_SESSION['fav'] = 'yellow';?> är <?php echo $_SESSION['fav'];?></p>
+    <h1>Hej <span id="emp_name"><?php echo $_SESSION['user_name'];?></span>!</h1>
+    <!-- <?=$_SESSION['user_name'];?><?php echo $_SESSION['user_name'];?>-->
+    <h3>Välj de områden som känns relevanta för dig i ditt dagliga jobb och/eller din roll som konsult på Forefront.</h3>
     <h4>Du får klicka i så många alternativ som du känner passar.</h4>
     <div class="items" onclick="getInput()"></div>
   </div>

@@ -1,3 +1,7 @@
+<?php 
+session_name('login');
+session_start(); 
+?>
 <!DOCTYPE html>
 <html >
   <head>
@@ -14,17 +18,21 @@
     
     <style>
       body {
-        background: #f58421;
+        background: rgba(245, 132, 33, 0.87);
       }
     </style>
 </head>
 <body>
   <div class="container">
-     <h1>Redo för testet <span class="stud_name"></span><?=$_SESSION['user_name']>?</h1>
-    <!-- <?php echo $_SESSION['name']; ?> -->
-  <h3>Välj de områden som känns relevanta för dig i din utbildning och/eller en framtida karriär.</h3>
+    <h1>Hej <span id="emp_name"></span>!</h1>
+    <input type="hidden" id="inphidd" 
+           name-value="<?php echo $_SESSION['user_name'];?>"
+           email-value="<?php echo $_SESSION['user_email']; ?>"
+           area-value="<?php echo $_SESSION['user_busarea']; ?>"/>
+    <h3>Välj de områden som känns relevanta för dig i ditt dagliga jobb och/eller i din roll som konsult på Forefront.</h3>
     <h4>Du får klicka i så många alternativ som du känner passar.</h4>
-    <div class="items" onclick="getInput()"></div>
+    <div class="items" onclick=""></div>
+    <a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>
   </div>
 </body>
 </html>

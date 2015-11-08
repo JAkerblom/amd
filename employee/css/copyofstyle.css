@@ -1,12 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
 
 body {
-  background: rgba(245, 132, 33, 0.87);
+  background: #f58421;
+  color: #435757;
+  /*background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);*/
   min-height: 100vh;
   width: auto;
   font-family: Lato;
-  color: #fff;
-  font-weight: 100;
+  /*color: #fff;*/
+  font-weight: 200;
 }
 
 .title h1 {
@@ -257,6 +259,7 @@ input[type=radio]:checked + label:after {
      -moz-border-radius:0em;
           border-radius:0em;
   text-align: left;
+  font-weight: 100;
   color: #464646;
   cursor: pointer;
   font-weight: 200;
@@ -264,9 +267,9 @@ input[type=radio]:checked + label:after {
 
 /*.drop-wrap span {*/
 .main-drop span {
-  position: absolute;
-  top: 0;
-  right: 0;    
+  position:absolute;
+  top:0;
+  right:0;    
   height: 100%;  
   /*padding:10px 10px 15px 10px;*/
   /*background:#449ef7;*/
@@ -308,7 +311,7 @@ input[type=radio]:checked + label:after {
 
 
 .drop-wrap li:hover {
-  background:#3498DB;
+  /*background:#3498DB;*/
   color: #fff;
   cursor:pointer;
 }

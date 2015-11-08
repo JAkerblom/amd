@@ -51,23 +51,10 @@ var areas = {
 ================================ */
 var programs = {
   'prognames': [
-    'Arkitekt',
-    'Bioteknik',
-    'Brandingenjör',
-    'Datateknik',
-    'Ekonomi',
-    'Ekosystemteknik',
-    'Elektroteknik',
-    'Industridesign',
-    'Industriell Ekonomi',
-    'Informations- och kommunkikationsteknik',
-    'Kemiteknik',
-    'Lantmäteri',
-    'Livsmedelsteknik',
-    'Maskinteknik',
     'Systemvetenskap',
-    'Teknisk fysik/matematik',
-    'Väg och vatten'
+    'Industriell Ekonomi',
+    'Datavetenskap',
+    'Elektro'
   ]
 };
 
@@ -111,21 +98,11 @@ var subjects = {
     and to find subject title string. 
     -> parseInt(subnames[0] key)*/
   'subshort': [
-    'projektledn',
-    'interaktionsdesign',
-    'webbutv',
-    'processutv',
-    'BIanalytics',
-    'verksamhetsutv',
-    'kravanalys',
-    'utbildning',
-    'infomod',
-    'systemutveckling',
-    'forandringsledn',
-    'ITstrategi',
-    'behovsanalys',
-    'testledn',
-    'systemarkitektur'
+    'X1',
+    'X2',
+    'X3',
+    'X4',
+    'X5'
   ]
 };
 
@@ -139,41 +116,15 @@ var subjects = {
 var model = {
   'predictors': [
     {
-      'names': [
-        'projektledn',
-        'interaktionsdesign',
-        'webbutv',
-        'processutv',
-        'BIanalytics',
-        'verksamhetsutv',
-        'kravanalys',
-        'utbildning',
-        'infomod',
-        'systemutveckling',
-        'forandringsledn',
-        'ITstrategi',
-        'behovsanalys',
-        'testledn',
-        'systemarkitektur'
-      ],
-      'howmany': 15, //Use to count up with input array
+      'names': ['X1', 'X2', 'X3', 'X4', 'X5'],
+      'howmany': 5, //Use to count up with input array
       'values': [
         {
-          'projektledn':'',
-          'interaktionsdesign':'',
-          'webbutv':'',
-          'processutv':'',
-          'BIanalytics':'',
-          'verksamhetsutv':'',
-          'kravanalys':'',
-          'utbildning':'',
-          'infomod':'',
-          'systemutveckling':'',
-          'forandringsledn':'',
-          'ITstrategi':'',
-          'behovsanalys':'',
-          'testledn':'',
-          'systemarkitektur':''
+          'X1':'',
+          'X2':'',
+          'X3':'',
+          'X4':'',
+          'X5':''
         }
       ]
     }
