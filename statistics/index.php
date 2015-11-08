@@ -6,7 +6,7 @@ session_start();
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Checkbox Trickery: To-Do List</title>
+    <title>Forefront Arbetsmarknadsdagarna</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="shortcut icon" href="../images/ffcgicon.ico">
