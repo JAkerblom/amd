@@ -10,23 +10,22 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style2.css">
-
+    
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
     <script src="../data/data.json"></script>
     <script src="js/index.js"></script>
-    
 </head>
 <body>
   <div class="container">
-    <h1>Tack så mycket för din medverkan, <?php echo $_SESSION['user_name'];?>!</h1>
+    <h1>Tack så mycket för din medverkan, <span id="emp_name"></span>!</h1>
     
     <div class="bar"></div>
+    
+    <h3>Återkom gärna för att ta testet och se inom vilket affärsområde det tror att du jobbar någonstans.</h3>
     <input type="hidden" id="inphidd" 
            name-value="<?php echo $_SESSION['user_name'];?>"
            email-value="<?php echo $_SESSION['user_email']; ?>"
            area-value="<?php echo $_SESSION['user_busarea']; ?>"/>
-    <div class="bar"></div>
   </div>
 </body>
 </html>

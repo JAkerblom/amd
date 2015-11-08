@@ -93,7 +93,7 @@ $(document).on('click', 'label', function (e) {
   PDO db access to a Azure MySQL db.
 ================================= */
 $(document).ready(function(e) {
-  $('#dbexec').on('click', function() {
+  $('#dbexec').on('click', function(ev) {
     var json = buildJSON();
     console.log(json);
     json = JSON.parse(json);

@@ -164,7 +164,7 @@ $(document).on('click', '.login', function (e) {
   
   $.ajax({
     type: "POST",
-    url: "/php/session.php",
+    url: "/amd/php/session.php",
     data: usercredsstr, 
     success: function (msg) {
       console.log('Success:' + msg);

@@ -30,10 +30,10 @@ session_start();
     <div class="bar"></div>
     <div class="items" onclick=""></div>
     <!--<a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>-->
-    <a href="/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
+    <a href="" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
   </div>
   <!--<div class="container">
-    
+    ../statistics/
     </div>-->
 </body>
 </html>
