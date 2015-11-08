@@ -16,24 +16,23 @@ session_start();
     <script src="../data/data.json"></script>
     <script src="js/index.js"></script>
     
+    <style>
+      body {
+        background: rgba(245, 132, 33, 0.87);
+      }
+    </style>
 </head>
 <body>
   <div class="container">
     <h1>Hej <span id="emp_name"></span>!</h1>
-    <div class="bar"></div>
     <input type="hidden" id="inphidd" 
            name-value="<?php echo $_SESSION['user_name'];?>"
            email-value="<?php echo $_SESSION['user_email']; ?>"
            area-value="<?php echo $_SESSION['user_busarea']; ?>"/>
     <h3>Välj de områden som känns relevanta för dig i ditt dagliga jobb och/eller i din roll som konsult på Forefront.</h3>
     <h4>Du får klicka i så många alternativ som du känner passar.</h4>
-    <div class="bar"></div>
     <div class="items" onclick=""></div>
-    <!--<a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>-->
-    <a href="/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
+    <a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>
   </div>
-  <!--<div class="container">
-    
-    </div>-->
 </body>
 </html>

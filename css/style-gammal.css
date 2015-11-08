@@ -1,21 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,100,200,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
 
 body {
-  /*background: -webkit-linear-gradient(110deg, #d0b782 20%, #a0cecf 80%);
-  background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);*/
-  /*background: -webkit-linear-gradient(110deg, rgb(252,216,86) 20%, rgb(255,163,0) 80%);
-  background: linear-gradient(-20deg, rgb(252,216,86) 20%, rgb(255,163,0) 80%);*/
   background: rgba(245, 132, 33, 0.87);
   min-height: 100vh;
   width: auto;
   font-family: Lato;
   color: #fff;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .title h1 {
   font-size: 2.5em;
-  /*font-weight: 100;*/
   color: #fff;
   margin-bottom: 0.5em;
   margin-top: 0;
@@ -50,12 +45,12 @@ input[type=text], input[type=password], input[type=email], .program {
   margin-bottom: 0.6em;
   border: none; 
   color: #464646;
-  /*font-weight: 200;*/
+  font-weight: 400;
   background-color: #fff;
 }
 input[type=text]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder,  input[type=email]::-webkit-input-placeholder {
   color: #aaaaaa;
-  /*font-weight: 200;*/
+  font-weight: 100;
   position: relative;
   padding: 0;
   -webkit-transition: all 0.5s ease;
@@ -63,21 +58,21 @@ input[type=text]::-webkit-input-placeholder, input[type=password]::-webkit-input
 }
 input[type=text]::-moz-placeholder, input[type=password]::-moz-placeholder, input[type=email]::-moz-placeholder, {
   color: #aaaaaa;
-  /*font-weight: 200;*/
+  font-weight: 100;
   position: relative;
   padding: 0;
   transition: all 0.5s ease;
 }
 input[type=text]:-ms-input-placeholder, input[type=password]:-ms-input-placeholder, input[type=email]:-ms-input-placeholder {
   color: #aaaaaa;
-  /*font-weight: 200;*/
+  font-weight: 100;
   position: relative;
   padding: 0;
   transition: all 0.5s ease;
 }
 input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
   color: #aaaaaa;
-  /*font-weight: 200;*/
+  font-weight: 100;
   position: relative;
   padding: 0;
   -webkit-transition: all 0.5s ease;
@@ -98,12 +93,12 @@ input[type=text]:hover::placeholder, input[type=text]:focus::placeholder, input[
 
 .form h2 {
   text-align: left;
-  /*font-weight: 200;*/
+  font-weight: 100;
   color: #fff;
   margin-bottom: .5em;
 }
 .form h4 {
-  /*font-weight: 100;*/
+  font-weight: 100;
   color: #fff;
   margin-top: 2em;
 }
@@ -112,7 +107,7 @@ input[type=text]:hover::placeholder, input[type=text]:focus::placeholder, input[
   color: white;
   width: 100%;
   /*font-family: Lato;*/
-  /*font-weight: 100;*/
+  font-weight: 100;
   font-size: 1.75em;
   border: 1px solid rgba(255, 255, 255, 0.75);
   background: transparent;
@@ -125,7 +120,6 @@ input[type=text]:hover::placeholder, input[type=text]:focus::placeholder, input[
   padding: 12pt;
   margin-bottom: 4pt;
   margin-top: 8pt;
-  font-weight: 300 !important;
 }
 .login:hover, .signup:hover, .login:focus, .signup:focus {
   background: #fff;
@@ -139,9 +133,9 @@ input[type=text]:hover::placeholder, input[type=text]:focus::placeholder, input[
   left: 1.5em;
 }
 
-h1, h2, h3, h4, h5, h6, label {
+h1, h2 h3, h4, h5, h6, input {
   font: Lato;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 /* Phone specific CSS commands */
@@ -207,14 +201,13 @@ label.radio {
   position: relative;
   margin-bottom: 0.4em;
   margin-top: 0.7em;
-  /*font-weight: 100;*/
+  font-weight: 100;
   font-size: 1.75em;
 }
 
 label.radio:before {
   /*background: #3aaf8b;*/
   background: #2ecc71;
-  /*background: rgb(96,198,89);*/
   content:'';
   position: absolute;
   top:2px;
@@ -266,7 +259,7 @@ input[type=radio]:checked + label:after {
   text-align: left;
   color: #464646;
   cursor: pointer;
-  /*font-weight: 200;*/
+  font-weight: 200;
 }
 
 /*.drop-wrap span {*/
@@ -275,24 +268,22 @@ input[type=radio]:checked + label:after {
   top: 0;
   right: 0;    
   height: 100%;  
-  padding-top: 2px;
   /*padding:10px 10px 15px 10px;*/
   /*background:#449ef7;*/
-  /*background: #2ecc71;*/
-  /*background: rgb(96,198,89);*/
-  /*-webkit-border-top-right-radius: 0px;
+  background: #2ecc71;
+  -webkit-border-top-right-radius: 0px;
   -webkit-border-bottom-right-radius: 0px;
      -moz-border-radius-topright: 0px;
      -moz-border-radius-bottomright: 0px;
           border-top-right-radius: 0px;
-          border-bottom-right-radius: 0px;*/
+          border-bottom-right-radius: 0px;
   cursor:pointer;
   float: right;
 }
 
-/*.main-drop span:hover {
-  background: #27c76b;
-}*/
+.main-drop span:hover {
+  background: #3aaf8b;
+}
 
 .drop-wrap ul {
   list-style:none;
@@ -322,46 +313,6 @@ input[type=radio]:checked + label:after {
   cursor:pointer;
 }
 
-#student_list select,
-#employee_list select 
-{
-  display: none;
-  background: url('../images/drop-green(4).png') no-repeat right #fff;
-  background-size: 45px 45px;
-  color: #6a6969;
-  width: 100%;
-  height: 43px;
-  font-size: 1.2em;
-  padding: 10px 10px 10px 10px;
-  /*padding:10px 10px 15px 20px;*/
-  border: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-}
-
-@media (min-width: 769px) {
-  #student_list select,
-  #employee_list select 
-  {
-    display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-drop    { display: none; }
-  #student_list select
-  { 
-    display: inline-block; 
-  }
-}
-
-#student_ul, 
-#employee_ul 
-{
-  overflow: scroll;
-  height: 200px;
-}
-
 
 /* CSS Menus
 ===============================*/
@@ -370,7 +321,7 @@ li {
   list-style:none;
   border-bottom: solid 1px rgba(170, 170, 170, 0.32);
   color:#fff;
-  /*font-weight:200;*/
+  font-weight:200;
   display:inline-block;
 }
 

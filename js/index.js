@@ -8,7 +8,6 @@ $(document).ready(function() {
   $stud_list = $('#student_list ul');
   $stud_select = $('#student_list select');
   $stud_select.append('<option value="">Välj inriktning</option>');
-  //var i;
   var i = 0;
   $.each(programs.progs, function(key, item) {
     var progname = item['name'];
