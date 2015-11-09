@@ -322,6 +322,14 @@ input[type=radio]:checked + label:after {
   cursor:pointer;
 }
 
+
+#student_list select,
+#employee_list select 
+{
+  background: url('../images/drop-green(4).png') no-repeat right #fff;
+  background-size: 45px 45px;
+}
+/*
 #student_list select,
 #employee_list select 
 {
@@ -330,10 +338,10 @@ input[type=radio]:checked + label:after {
   background-size: 45px 45px;
   color: #6a6969;
   width: 100%;
-  height: 43px;
-  font-size: 1.2em;
+  height: 43px !important;
+  font-size: 1.2em !important;
   padding: 10px 10px 10px 10px;
-  /*padding:10px 10px 15px 20px;*/
+  padding:10px 10px 15px 20px;
   border: 0;
   border-radius: 0 !important;
   -webkit-appearance: none;
@@ -361,6 +369,7 @@ input[type=radio]:checked + label:after {
   overflow: scroll;
   height: 200px;
 }
+*/
 
 
 /* CSS Menus

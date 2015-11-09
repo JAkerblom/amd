@@ -31,16 +31,17 @@ session_start();
     #employee_list select 
     {
       display: none;
-      background: #fff;
+      /*background: #fff;*/
+      /*background: url('../images/drop-green(4).png') no-repeat right #fff;
+  background-size: 45px 45px;*/
       color: #6a6969;
       width: 100%;
-      height: 34px;
-      line-height: 100%;
-      font-size: 16px;
+      height: 43px;
+      font-size: 1.2em;
       padding: 10px 10px 10px 10px;
       /*padding:10px 10px 15px 20px;*/
       border: 0;
-      border-radius: 0;
+      border-radius: 0 !important;
       -webkit-appearance: none;
     }
     
