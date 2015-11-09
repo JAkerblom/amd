@@ -98,18 +98,22 @@ $(document).ready(function(e) {
     console.log(json);
     json = JSON.parse(json);
     console.log(json);
-    
-    /* The ajax call to dbexec_empl.php */
+    alert('You are here');
+    //ev.preventDefault();
+    /* The ajax call to dbexec_empl.php 
+      url: "/php/dbexec_empl.php",*/
     $.ajax({
       url: "/php/dbexec_empl.php",
       type: "post",
       data: json,
       success: function(data) {
         console.log('Succeded with storing employee input data.');
-        console.log("SQL command: " + data);
+        alert("SQL query results: " + data);
+        console.log(data);
       },
       error: function() {
         console.log('Failed to store data.');
+        alert('Error');
       }
     });
   });

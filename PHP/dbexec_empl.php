@@ -22,43 +22,67 @@ if(!empty($_POST)) {
     if(isset($_POST['empl_input'])) {
       $body = json_decode(json_encode($_POST['empl_input']));
       $creds = $body->credentials;
-      $preds = $body->subjects;      
-        
-      $colstr = '(';
-      $valuestr = '(';
-      $i = 1;
-      foreach ($creds as $key => $value) {
-        if ($key != 'program') {
-          if ($i == 1) {
-            $colstr .= $key;
-            $valuestr .= "'" . $value . "'";
-          } else {
-            $colstr .= ', ' . $key;
-            $valuestr .= ', ' . "'" . $value . "'";
-          }
-        }
-        $i++;
-      }
-      foreach ($preds as $key => $value) {
-        $colstr .= ', ' . $key;
-        $valuestr .= ', ' . $value;
-      }
-      $colstr .= ')';
-      $valuestr .= ')';
+      $preds = $body->subjects; 
       
-      // Insert data
+      // Use empl_tbl table
       $table = 'empl_tbl';
-      $sql_insert = "INSERT INTO " . $table . ' ' . $colstr . 
-                 " VALUES " . $valuestr;
-      $stmt = $conn->prepare($sql_insert);
-      //$stmt->bindValue(1, $name);
-      echo $sql_insert;
-      $stmt->execute();   // Execute the sql command
+      $email = $creds->email;
       
+      // Show all occurrences with this email
+      $stmt = $conn->query('SELECT * FROM empl_tbl WHERE email="'. $email .'"');
+      $row_count = $stmt->rowCount();
+      
+      if ($row_count > 0) {
+        // Build data to update with
+        $name = $creds->name;
+        $busArea = $creds->busArea;
+        $colvalstr .= "name='".$name."', busArea='".$busArea."'";
+
+        foreach ($preds as $key => $value) {
+          $colvalstr .= 
+            ", ".$key."=".$value;
+        }
+        
+        // Update data
+        //$stmt = $conn->exec("UPDATE ". $table ." SET name='John Yugio' WHERE email='". $email ."'");
+        $stmt = $conn->exec("UPDATE ". $table ." SET ". $colvalstr ." WHERE email='". $email ."'");
+        echo $stmt . " were affected."; 
+      } else {      
+        // Build data to insert
+        $colstr = '(';
+        $valuestr = '(';
+        $i = 1;
+        foreach ($creds as $key => $value) {
+          if ($key != 'program') {
+            if ($i == 1) {
+              $colstr .= $key;
+              $valuestr .= "'" . $value . "'";
+            } else {
+              $colstr .= ', ' . $key;
+              $valuestr .= ', ' . "'" . $value . "'";
+            }
+          }
+          $i++;
+        }
+        foreach ($preds as $key => $value) {
+          $colstr .= ', ' . $key;
+          $valuestr .= ', ' . $value;
+        }
+        $colstr .= ')';
+        $valuestr .= ')';  
+        // Insert data
+        $sql_insert = "INSERT INTO " . $table . ' ' . $colstr . " VALUES " . $valuestr;  
+        //$stmt = $conn->prepare($sql_insert);
+        //$stmt->execute();
+        $result = $conn->exec($sql_insert);
+        $insertID = $conn->lastInsertId();
+        echo $result;
+      }
     } 
   } 
   catch(Exception $e) {
       die(var_dump($e));
   }
 }
+//$stmt->bindValue(1, $name);
 ?>

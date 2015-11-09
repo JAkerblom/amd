@@ -162,6 +162,8 @@ $(document).on('click', '.login', function (e) {
   console.log(usercredsstr);
   usercredsstr = JSON.parse(usercredsstr);
   
+  /* The ajax call to store session variables 
+    url: "/php/session.php", */
   $.ajax({
     type: "POST",
     url: "/php/session.php",
