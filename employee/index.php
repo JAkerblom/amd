@@ -24,7 +24,7 @@ session_start();
     <h1>Hej <span id="emp_name"></span>!</h1>
     <div class="bar"></div>
     <input type="hidden" id="inphidd" 
-           name-value="<?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Error';?>"
+           name-value="<?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';?>"
            email-value="<?php echo $_SESSION['user_email']; ?>"
            area-value="<?php echo $_SESSION['user_busarea']; ?>"/>
     <h3>Välj de områden som känns relevanta för dig i ditt dagliga jobb och/eller i din roll som konsult på Forefront.</h3>

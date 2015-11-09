@@ -98,7 +98,6 @@ $(document).ready(function(e) {
     console.log(json);
     json = JSON.parse(json);
     console.log(json);
-    alert('You are here');
     //ev.preventDefault();
     /* The ajax call to dbexec_empl.php 
       url: "/php/dbexec_empl.php",*/
@@ -108,8 +107,7 @@ $(document).ready(function(e) {
       data: json,
       success: function(data) {
         console.log('Succeded with storing employee input data.');
-        alert("SQL query results: " + data);
-        console.log(data);
+        console.log("SQL query results: " + data);
       },
       error: function() {
         console.log('Failed to store data.');
