@@ -1,3 +1,26 @@
+// Set name in title on load
+// Also add the SESSION variables to the
+//  json variable that holds these user credentials
+$(document).ready(function(e) {
+  $hiddeninput = $('#inphidd');
+  $name = $hiddeninput.attr('name-value');
+  $email = $hiddeninput.attr('email-value');
+  $program = $hiddeninput.attr('area-value');
+  
+  $namespan = $('#stud_name');
+  $firstname = $name.split(' ')[0];
+  $namespan.text($firstname);
+  
+  credentials['name'] = $hiddeninput.attr('name-value');
+  credentials['email'] = $hiddeninput.attr('email-value');
+  credentials['program'] = $hiddeninput.attr('program-value');
+  
+  console.log(credentials['name']);
+  console.log(credentials['email']);
+  console.log(credentials['program']);
+  
+});
+
 /* Helper function to insert area
     description in the paragraph that
     it is destined to reside by id
@@ -6,14 +29,11 @@ function replaceDescr(obj, id) {
   var descr = areas[id][0]['description'];
   obj.html(descr);
 }
-
 function replaceTitle(obj, id) {
   var title = areas[id][0]['title'];
   console.log(obj);
   obj.html(title);
 }
-
-
 
 /* Use the response and set global 
     json variables.
@@ -21,87 +41,29 @@ function replaceTitle(obj, id) {
     the probabilities, as well to
     set  
 =================================== */
-function setResults(response) {
-  // Set areascores
-  result['areascores'][0]['BA'] = parseFloat($response[0]);
-  result['areascores'][0]['BD'] = parseFloat($response[0])-0.15;
-  result['areascores'][0]['BS'] = parseFloat($response[0])+0.15;
-  result['areascores'][0]['BT'] = parseFloat($response[0])-0.6;
-  
-  // Set dropRelation
-  var tmpRes = ['0.07', '0.723', '0.542'];
-  result['dropRelation'][0]['area1'] = '';
-}
+function setResults(response) {}
 
 /* Helper function that builds the json 
     request body from the global variable
     -> 'model' (data.json).
 ================================== */
-function buildJSON(input) {
-  // JSON body parts
-  var jsonparts = {
-    str:'{"empl_input":{"credentials":{',
-    str:'"name":, "email":, "busarea":',
-    str:'},"subjects":{}',
-  }
-  var json = {
-    "empl_input":
-    {
-      "credentials":
-      {
-        "name":"", 
-        "email":"", 
-        "busarea":"",
-      },
-      "subjects":
-      {
-      }
+function buildJSON() {
+  $str = '';
+  
+  $mdobj = models.predictors[0];
+  $mdstr = JSON.stringify(models.predictors[0]);
+  $str += '{"stud_input":{"credentials":' + JSON.stringify(credentials) + ',"subjects":{';
+  var i = 1;
+  $.each($mdobj, function(key, value) {
+    $str += '"' + key + '"' + ':' + value['value'];
+    if (i != Object.keys(models.predictors[0]).length) {
+      $str += ', ';
+    } else { 
+      $str += '}}}';
     }
-  };
-  
-  /*var json = {
-    str = '"empl_input":{"credentials":{"name":"", 
-        "email":"", 
-        "busarea":"",
-      },
-      "subjects":
-      {
-      }
-    }
-  };*/
-  
-  // JSON string start here
-  var str = jsonparts['start'];
-  
-  // Predictor names from (data.json)
-  //var preds = model['predictors'][0]['names'];
-  //preds.push(model['response'][0]['name'][0]);
-  
-  // For later:
-  //Use index to retrieve the name for the model to run. 
-  //preds.push(model['response'][0]['name'][index]);
-  
-  // Array: Inputed data from the form
-  var data = input;
-  var data = ["1", "0", "1", "0", "1", "1", "0", "1", "0", "1", "1", "0", "1", "0", "1", "0"];
-  
-  // Build json string with predictor names
-  //  and input values.
-  $.each(preds, function(index, value) {
-    if (!(index === preds.length-1)) {
-      str += '"' + value + '"' + ',';
-    } else {
-      str += '"' + value + '"' + jsonparts['middle'];
-    }
+    i++;
   });
-  $.each(data, function(index, value) {
-    if (!(index === data.length-1)) {
-      str += '"' + value + '"' + ',';
-    } else {
-      str += '"' + value + '"' + jsonparts['end'];
-    }
-  });
-  return str;
+  return $str;
 }
 
 $(document).ready(function(e) {
@@ -123,7 +85,7 @@ $(document).on('click', 'label', function (e) {
   $subject = $inputSibling.attr('value');
   $isValue = models.predictors[0][$subject]['value'];
   models.predictors[0][$subject]['value'] = ($isValue && $willbeValue) ? false : true;
-  //console.log(models.predictors[0][$subject]['name'] + " is now " + models.predictors[0][$subject]['value']);
+  console.log(models.predictors[0][$subject]['name'] + " is now " + models.predictors[0][$subject]['value']);
 });
   
 /* Pass the employee input form data to PHP script (via ajax)
@@ -131,21 +93,25 @@ $(document).on('click', 'label', function (e) {
   PDO db access to a Azure MySQL db.
 ================================= */
 $(document).ready(function(e) {
-  $('#dbexec').on('click', function() {
-    var json = buildJSON(getInput());
+  $('#dbexec').on('click', function(ev) {
+    var json = buildJSON();
     console.log(json);
     json = JSON.parse(json);
+    console.log(json);
+    ev.preventDefault();
     
-    /* The ajax call to dbexec_empl.php */
+    /*The ajax call to dbexec_stud.php */
     $.ajax({
-      url: "/amd/php/dbexec_empl.php",
+      url: "/amd/php/dbexec_stud.php",
       type: "post",
       data: json,
       success: function(data) {
-        console.log('Succeded with storing employee input data.');
+        console.log('Succeded with storing student input data.');
+        console.log("SQL query results: " + data);
       },
       error: function() {
         console.log('Failed to store data.');
+        alert('Error: Failed to store data. Try to start over and cleanse with refresh.');
       }
     });
   });
@@ -155,17 +121,8 @@ $(document).ready(function(e) {
 //  if SESSION variables are used. 
 function getInput() {
   var inData = [];
-  //$lengthOfSubs = model.predictors[0].names.length;
-  $lengthOfSubs = Object.keys(models.predictors[0]).length;
-  $items = $('.items')[0].children;
-  $.each($items, function(index, value) {
-    if (!$(this).is('h2') && index % 2 === 0) {
-      //console.log(index + ": " + this.checked);
-      inData.push(this.checked);  
-      var val = this.value;
-      //model.predictors[0].values[0][val] = this.checked;
-      models.predictors[0][val] = this.checked;
-    }
+  $.each(models.predictors[0], function(key, value) {
+    console.log(key + ": " + value['value']);
   });
   return inData;
 }

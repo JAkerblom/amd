@@ -75,7 +75,8 @@ session_start();
     <div class="row">
       <div class="col-md-6 col-md-offset-3 text-center title">
       <!--<h1>Vilket affärsområde tillhör du?</h1>-->
-        <h1>Vill du veta vilket <br><span style="font-size:1.5em">affärsområde <br>DU tillhör?</span></h1>
+        <h1>Vill du veta var du<br><span style="font-size:1.5em">passar in hos oss?</span></h1>
+          <!--<h1>Vill du veta vilket <br><span style="font-size:1.5em">affärsområde <br>DU tillhör?</span></h1>-->
         <div class="bar"></div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 form accounttype">
@@ -105,7 +106,7 @@ session_start();
         <p>
         <div class="drop-wrap">
           <div class="main-drop program" tabindex="3">
-            <div id="program_holder" data-value="">Välj inriktning</div>
+            <div id="program_holder" data-value="">Välj utbildning</div>
             <span>
               <img src="images/drop-green(4).png" width="45px" height="45px" class=""/>
             </span>

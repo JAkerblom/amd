@@ -98,7 +98,7 @@ $(document).ready(function(e) {
     console.log(json);
     json = JSON.parse(json);
     console.log(json);
-    //ev.preventDefault();
+
     /* The ajax call to dbexec_empl.php 
       url: "/php/dbexec_empl.php",*/
     $.ajax({

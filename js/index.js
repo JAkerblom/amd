@@ -56,7 +56,7 @@ $(document).ready(function (e) {
         $empl_select.css('display', 'none');
         $stud_select.css('display', 'inline-block');
       }
-      placeText(null, 'Välj inriktning');
+      placeText(null, 'Välj utbildning');
     } else {
       console.log("Changed to employee");
       $anchor.attr('href', 'employee/');
@@ -119,7 +119,7 @@ $(document).on('click', '.login', function (e) {
   $typeofUser = $('input:radio[name=typeofUser]');
   if ($typeofUser[0]['checked']) {
     e.preventDefault();
-    alert("Student test function is not released yet."); 
+    //alert("Student test function is not released yet."); 
   }
   $name = $('#inputOne');
   $email = $('#inputTwo');
