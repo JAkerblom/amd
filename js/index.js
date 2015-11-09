@@ -172,7 +172,7 @@ $(document).on('click', '.login', function (e) {
       console.log('Success:' + msg);
     },
     error: function (err){
-      alert('Error');
+      //alert('Error');
     }
   });
   if ($alert) {alert($alertstr);}

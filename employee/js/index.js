@@ -111,7 +111,7 @@ $(document).ready(function(e) {
       },
       error: function() {
         console.log('Failed to store data.');
-        alert('Error');
+        alert('Error: Failed to store data. Try to start over and cleanse with refresh.');
       }
     });
   });
