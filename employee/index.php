@@ -27,7 +27,10 @@ session_start();
            name-value="<?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';?>"
            email-value="<?php echo $_SESSION['user_email']; ?>"
            area-value="<?php echo $_SESSION['user_busarea']; ?>"/>
-    <h3>Välj de områden som känns relevanta för dig i ditt dagliga jobb och/eller i din roll som konsult på Forefront.</h3>
+    <h3>Välj de områden som känns relevanta för dig:</h3> 
+    <h3>1. i ditt dagliga jobb </h3>
+    <h3>2. i din roll som konsult på Forefront.</h3>
+    <h3>3. i en framtida konsultprofil</h3>
     <h4>Du får klicka i så många alternativ som du känner passar.</h4>
     <div class="bar"></div>
     <div class="items" onclick=""></div>
