@@ -30,6 +30,7 @@ session_start();
   <div class="container">
     <h1>Tack så mycket för din medverkan, <span id="emp_name"></span>!</h1>
     
+    <!--<h3>Med din hjälp kommer det här bli</h3>-->
     <div class="bar"></div>
     
     <h3>Återkom gärna för att ta testet och se inom vilket affärsområde det tror att du jobbar.</h3>
