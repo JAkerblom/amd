@@ -9,6 +9,8 @@ if ( isset($_POST['credentials']) ) {
   $_SESSION['user_email'] = $obj->email;
   if ($obj->program != '') {
     $_SESSION['user_program'] = $obj->program;
+    // Watch out for this row, not implemented with JSON data yet
+    $_SESSION['user_gradYear'] = $obj->gradYear;
   } else {
     $_SESSION['user_busarea'] = $obj->busArea;
   }

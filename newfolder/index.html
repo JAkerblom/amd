@@ -1,0 +1,23 @@
+<?php
+session_name('login');
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../data/data.json"></script>
+    
+  </head>
+  <body>
+    <div id='dashboard'></div>
+  <script src="js/index.js"></script>
+  <script>dashboard('#dashboard',result.freqD);</script>
+  </body>
+  
+</html>
+

@@ -119,7 +119,7 @@ $(document).on('click', '.login', function (e) {
   $typeofUser = $('input:radio[name=typeofUser]');
   if ($typeofUser[0]['checked']) {
     e.preventDefault();
-    //alert("Student test function is not released yet."); 
+    alert("Student test function is not released yet."); 
   }
   $name = $('#inputOne');
   $email = $('#inputTwo');

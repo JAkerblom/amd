@@ -17,6 +17,15 @@
   <script src="../data/data.json"></script>
   
   <script src="js/index2.js"></script>
+  <script type="application/javascript">
+    $(function() {
+      $('progress').each(function() {
+        var max = $(this).val();
+        //$(this).val(0).animate({ value: max }, { duration: 2000, easing: 'easeOutCirc' });
+        $(this).val(0).animate({ value: max }, { duration: 2000, easing: 'easeInOutQuart' });
+      });
+    });
+  </script>
   <!-- Consider removing these -->
   <!--<script src="../js/angular.js"></script>
 	<!--<script src="../js/global.js"></script>-->
@@ -40,6 +49,35 @@
       float:left;
       width:50%;
     }
+    
+    #skills span {
+    top: -30px;
+    left: 2%;
+    position: relative;
+    font-size: 1.4em;
+    font-weight: bolder;
+    font-family: monospace;
+    color: #fff;
+}
+
+progress {
+    background-color: #f3f3f3;
+    border: 0;
+    height: 2.5em;
+    width: 100%;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #2ec;
+}
+
+progress::-webkit-progress-value {
+    background-color: #2ecc71;
+}
+
+progress::-moz-progress-bar {
+    background-color: #23ace1;
+}
   </style>
 </head>
 <body>
@@ -52,14 +90,6 @@
       <div class="test-subjects">
         <input id="subject1" type="checkbox" />
         <label for="subject1">sub1</label>
-        <input id="subject2" type="checkbox" />
-        <label for="subject2">sub1</label>
-        <input id="subject3" type="checkbox" />
-        <label for="subject3">sub1</label>
-        <input id="subject4" type="checkbox" />
-        <label for="subject4">sub1</label>
-        <input id="subject5" type="checkbox" />
-        <label for="subject5">sub1</label>
         <h2 class="chosen" aria-hidden="true">Chosen</h2>
         <h2 class="notchosen" aria-hidden="true">Not chosen</h2>
       </div>
@@ -124,10 +154,13 @@
         </div>
       </div>
       <div class="drop-wrap" id="area4">
-        <div class="main-drop area-head">
+        <section id="skills" class="main-drop">
+					<progress value="80" max="100"></progress><span>JavaScript/jQuery</span>
+      </section>
+        <!--<div class="main-drop area-head">
           <span class="area_holder" id="area4_holder"></span>
           <span class="area_result" id="area4_result">35%</span>
-        </div>
+        </div>-->
         <div class="drop-list" id="area4_content">
           <ul id="area4_list">
             <li>
@@ -138,9 +171,12 @@
           </ul>
         </div>
       </div>
+      
     </div>
-    <a onclick="">Click</a>
+    <a onclick="getInput()">Click</a>
   </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 </body>
 </html>
 
