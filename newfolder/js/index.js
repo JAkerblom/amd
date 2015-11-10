@@ -13,9 +13,11 @@ function dashboard(id, fData){
 
     //create svg for histogram.
     var hGsvg = d3.select(id).append("svg")
+        .attr("id", "first")
         .attr("width", hGDim.w + hGDim.l + hGDim.r)
         .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
-        .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
+          .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
+          
 
     // create function for x-axis mapping.
     var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
@@ -23,8 +25,16 @@ function dashboard(id, fData){
 
     // Add x-axis to the histogram svg.
     hGsvg.append("g").attr("class", "x axis")
-        .attr("transform", "translate(0," + hGDim.h + ")")
+        .attr("transform", "translate(0," + hGDim.h + ")")  
         .call(d3.svg.axis().scale(x).orient("bottom"));
+    
+    $textel = $('text');
+    console.log($textel);
+    $.each($textel, function() {
+      console.log($(this));
+      $(this).attr('transform', 'rotate(-40 20 60)');
+    });
+      //  .attr("transform", "rotate(-40 20 60)");
 
     // Create function for y-axis map.
     var y = d3.scale.linear().range([hGDim.h, 0])
@@ -48,8 +58,8 @@ function dashboard(id, fData){
     bars.append("text").text(function(d){ return d3.format(",")(d[1])})
         .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
         .attr("y", function(d) { return y(d[1])-5; })
-        .attr("text-anchor", "middle")
-        .attr("transform", "rotate(315deg)");
+        .attr("text-anchor", "middle");
+        
         //.attr("writing-mode", "tb-lr");
 
     function mouseover(d){  // utility function to be called on mouseover.
