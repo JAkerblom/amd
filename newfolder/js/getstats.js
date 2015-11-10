@@ -145,8 +145,8 @@ function dashboard(id, fData){
       var pC ={},    pieDim ={w:200, h: 200};
       pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
-      // create svg for pie chart.
-      var piesvg = d3.select('#piediv').append("svg")
+      // create svg for pie chart.'#piediv'
+      var piesvg = d3.select(id).append("svg")
           .attr("id", "second")
           .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
           .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
@@ -194,8 +194,8 @@ function dashboard(id, fData){
   function legend(lD){
       var leg = {};
 
-      // create table for legend.
-      var legend = d3.select('#tablediv').append("table").attr('class','legend');
+      // create table for legend. '#tablediv'
+      var legend = d3.select(id).append("table").attr('class','legend');
 
       // create one row per segment.
       var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");

@@ -18,13 +18,15 @@
   padding-bottom: 55px;*/
   padding-left: 8%;
   padding-bottom: 14%;
+  margin-top: -60px;
+  margin-left: 2%;
   /*margin-bottom: 40px;*/
   /*margin-left: 20px;*/
   /*left:100px;*/
 }
 
 #second {
-  
+  margin: 0 auto;
 }
 
 #dashboard {
@@ -61,15 +63,10 @@ svg {
   display: block;
 }
 
-
-
-/*table {
-  display: block;
-  position: relative;
-  
-  left: 30%;
-  vertical-align: inherit;
-}*/
+table {
+  margin: 0 auto;
+  margin-bottom: 2vh;
+}
 
 line ~ text {
   transform: rotate(-20 20 60);

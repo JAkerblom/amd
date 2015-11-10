@@ -7,8 +7,8 @@ session_start();
   <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="../images/ffcgicon.ico">
-    <!--<link rel="stylesheet" href="css/stylestats.css">
-    <link rel="stylesheet" href="css/styleloading.css">-->
+    <link rel="stylesheet" href="css/stylestats.css">
+    <link rel="stylesheet" href="css/styleloading.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -34,11 +34,11 @@ session_start();
         <h4>Pajdiagrammet visar svarsfördelningen från varje affärsområde.</h4>
       </div>
       <div class="bar" id="secondbar" style="display:none;"></div>
-      <!--<div id='dashboard' class="items">
+      <div id='dashboard' class="items">
         <div id="bardiv"></div>
         <div id="piediv"></div>
         <div id="tablediv"></div>
-      </div>-->
+      </div>
     </div>
   </body>
 </html>

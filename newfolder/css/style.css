@@ -68,7 +68,7 @@ h1 {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 20px;
+  /*padding: 20px;*/
   counter-reset: done-items undone-items;
 }
 
@@ -293,7 +293,7 @@ input:checked + label::before {
          color: #f58421 !important;
      }
   .container {
-    max-width: 450px;
+    max-width: none;
   }
 }
 
