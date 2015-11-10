@@ -28,8 +28,8 @@ body {
   margin-top: 10vh;
   max-width: 450px;
   margin: 0 auto;
-  left: 0;
-  right: 0;
+  /*left: 0;
+  right: 0;*/
   /*border-top: 5px solid #435757;*/
   /*border-top: 5px solid #464646;*/
   background-color: rgba(255, 255, 255, .6);

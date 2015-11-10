@@ -1,13 +1,9 @@
-body {
-  background-color: #2ecc71;
-  margin-top: 25px;
-}
-
 .loadcontainer {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20vh;
+  margin-top: 10vh;
   left: 0;
   right: 0;
 }

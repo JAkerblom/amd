@@ -195,7 +195,7 @@ function dashboard(id, fData){
       var leg = {};
 
       // create table for legend.
-      var legend = d3.select('#piediv').append("table").attr('class','legend');
+      var legend = d3.select('#tablediv').append("table").attr('class','legend');
 
       // create one row per segment.
       var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
