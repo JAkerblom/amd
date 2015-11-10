@@ -55,6 +55,50 @@ var credentials = {
   program:''
 };
 
+/* Insert university programs to 
+    list in the start view.
+================================ */
+/*var programs = {
+  'prognames': [
+    'Arkitektutbildningen',
+    'Bioteknik',
+    'Brandingenjör',
+    'Datateknik',
+    'Ekonomi',
+    'Ekosystemteknik',
+    'Elektroteknik',
+    'Industridesign',
+    'Industriell Ekonomi',
+    'Informations- och kommunkikationsteknik',
+    'Kemiteknik',
+    'Lantmäteri',
+    'Livsmedelsteknik',
+    'Maskinteknik',
+    'Systemvetenskap',
+    'Teknisk fysik/matematik',
+    'Väg och vatten'
+  ],
+  'progshort': [
+    'arkitekt',
+    'bioteknik',
+    'brandingenjör',
+    'datateknik',
+    'ekonomi',
+    'eko',
+    'elektro',
+    'industridesign',
+    'indek',
+    'infokom',
+    'kemi',
+    'lant',
+    'livsmedel',
+    'maskin',
+    'systemvetenskap',
+    'teknisk',
+    'vagvatten'
+  ]
+};*/
+
 var programs = {
   'progs':
   {
@@ -128,11 +172,6 @@ var programs = {
       name:'Maskinteknik', 
       short:'maskin', 
     },
-    'media':
-    {
-      name:'Medieteknik',
-      short:'media'
-    },
     'systemvetenskap':
     {
       name:'Systemvetenskap', 
@@ -150,6 +189,55 @@ var programs = {
     }
   }
 };
+
+/* Insert subjects. OBS! Must be
+    one of the predictors used in
+    the Azure ML model.
+================================ */
+/*var subjects = {
+  'subnames': [
+    {
+      '1':'Projektledning',
+      '2':'Interaktionsdesign (UX/UI)',
+      '3':'Webb/applikationsutvckling',
+      '4':'Processmodellering/utveckling',
+      '5':'BI & prediktiv analys',
+      '6':'Verksamhetsanalys/utveckling',
+      '7':'Kravanalys & kravhantering',
+      '8':'Utbildning, workshops & coaching',
+      '9':'Informations- & datamodellering',
+      '10':'Systemutveckling & affärssystem',
+      '11':'Förändringsledning',
+      '12':'IT-strategi',
+      '13':'Behovs-, marknads-, & riskanalys,',
+      '14':'Testledning',
+      '15':'Systemarkitektur',
+    }
+  ],
+
+  //Use sub short to make nomenclature
+  //towards azure easier to handle.
+  //  -> We use .inArray() to find index
+  //  and to find subject title string. 
+  //  -> parseInt(subnames[0] key)
+    'subshort': [
+    'projektledn',
+    'interaktionsdesign',
+    'webbutv',
+    'processutv',
+    'BIanalytics',
+    'verksamhetsutv',
+    'kravanalys',
+    'utbildning',
+    'infomod',
+    'systemutveckling',
+    'forandringsledn',
+    'ITstrategi',
+    'behovsanalys',
+    'testledn',
+    'systemarkitektur'
+  ]
+};*/
 
 /* Manipulate this json according to the
     ML model set up with azure.
@@ -255,6 +343,58 @@ var models = {
   ]
 }
   
+// Deprecated model, use models instead
+/*var model = {
+  'predictors': [
+    {
+      'names': [
+        'projektledn',
+        'interaktionsdesign',
+        'webbutv',
+        'processutv',
+        'BIanalytics',
+        'verksamhetsutv',
+        'kravanalys',
+        'utbildning',
+        'infomod',
+        'systemutveckling',
+        'forandringsledn',
+        'ITstrategi',
+        'behovsanalys',
+        'testledn',
+        'systemarkitektur'
+      ],
+      'howmany': 15, //Use to count up with input array
+      'values': [
+        {
+          'projektledn':'',
+          'interaktionsdesign':'',
+          'webbutv':'',
+          'processutv':'',
+          'BIanalytics':'',
+          'verksamhetsutv':'',
+          'kravanalys':'',
+          'utbildning':'',
+          'infomod':'',
+          'systemutveckling':'',
+          'forandringsledn':'',
+          'ITstrategi':'',
+          'behovsanalys':'',
+          'testledn':'',
+          'systemarkitektur':''
+        }
+      ]
+    }
+  ],
+  'response': [
+    {
+      'name': ['Y', 'BA', 'BD', 'BS', 'BT'],
+      'values': ['X0', 'X1'],
+      'howmany': 2 //Use to count up with input array
+    }
+  ]
+};*/
+
 /* Manipulate this json according to the
     output that you wish to handle. 
   A function builds this json after success
@@ -289,21 +429,15 @@ var result = {
     {Area:'IT-arkitektur',freq:{ba:1789, bd:4589, bs:2132, bt:764}}
   ],
   freqData: [
-    {Area:'Projektledning',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Interaktionsdesign',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Webb/apputveckling',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Processutveckling',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'BI & Analytics',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Verksamhetsanalys',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Kravhantering',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Utbildning/coachning',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Info/datamodellering',freq:{BA:0, BD:0, BS:0, BT:0}},  
-    {Area:'Systemutveckling',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Förändringsledning',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'IT-strategi',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Behovsanalys',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Testledning',freq:{BA:0, BD:0, BS:0, BT:0}},
-    {Area:'Systemarkitektur',freq:{BA:0, BD:0, BS:0, BT:0}}
+    {Area:'Projektledning',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Processutveckling',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Mjukvaruarkitektur',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Webbutveckling',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Förändringsledning',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Kravanalys',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'BI & Analytics',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Verksamhetsarkitektur',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'IT-arkitektur',freq:{ba:0, bd:0, bs:0, bt:0}}
   ]
 };
   
