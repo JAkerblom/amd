@@ -429,15 +429,15 @@ var result = {
     {Area:'IT-arkitektur',freq:{ba:1789, bd:4589, bs:2132, bt:764}}
   ],
   freqData: [
-    {Area:'Projektledning',freq:{ba:4786, bd:1319, bs:249, bt:512}},
-    {Area:'Processutveckling',freq:{ba:1542, bd:1954, bs:641, bt:154}},
-    {Area:'Mjukvaruarkitektur',freq:{ba:870, bd:142, bs:3854, bt:1245}},
-    {Area:'Webbutveckling',freq:{ba:3456, bd:3670, bs:1540, bt:4612}},
-    {Area:'Förändringsledning',freq:{ba:614, bd:976, bs:142, bt:513}},
-    {Area:'Kravanalys',freq:{ba:2156, bd:413, bs:3091, bt:1213}},
-    {Area:'BI & Analytics',freq:{ba:97, bd:1450, bs:851, bt:570}},
-    {Area:'Verksamhetsarkitektur',freq:{ba:1670, bd:2987, bs:1200, bt:987}},
-    {Area:'IT-arkitektur',freq:{ba:1789, bd:4589, bs:2132, bt:764}}
+    {Area:'Projektledning',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Processutveckling',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Mjukvaruarkitektur',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Webbutveckling',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Förändringsledning',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Kravanalys',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'BI & Analytics',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'Verksamhetsarkitektur',freq:{ba:0, bd:0, bs:0, bt:0}},
+    {Area:'IT-arkitektur',freq:{ba:0, bd:0, bs:0, bt:0}}
   ]
 };
   
