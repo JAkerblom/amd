@@ -288,10 +288,13 @@ input:checked + label::before {
 }
 
 @media screen and (max-device-width: 480px){
-     .submit {
-         background: #fff;
-         color: #f58421 !important;
-     }
+  .submit {
+    background: #fff;
+    color: #f58421 !important;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 }
 
 @media screen and (max-device-width: 768px) {
