@@ -2,7 +2,7 @@ $(document).ready(function(e) {
   //console.log(areas);
   console.log(result.freqData[0]);
   $.ajax({
-    url: "/php/getstats.php",
+    url: "/amd/php/getstats.php",
     type: "get",
     dataType: 'json',
     success: function(data) {
