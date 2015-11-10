@@ -49,6 +49,7 @@ function dashboard(id, fData){
         .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
         .attr("y", function(d) { return y(d[1])-5; })
         .attr("text-anchor", "middle");
+        .attr("transform", "translate(25px, 51px) rotate(315deg)");
         //.attr("writing-mode", "tb-lr");
 
     function mouseover(d){  // utility function to be called on mouseover.
