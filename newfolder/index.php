@@ -35,11 +35,11 @@ session_start();
         <h4>Pajdiagrammet visar svarsfördelningen från varje affärsområde.</h4>
       </div>
       <div class="bar" id="secondbar" style="display:none;"></div>
-      <div id='dashboard' class="items">
+      <!--<div id='dashboard' class="items">
         <div id="bardiv"></div>
         <div id="piediv"></div>
         <div id="tablediv"></div>
-      </div>
+      </div>-->
     </div>
       <script src="js/getstats.js"></script>
     <!--<script src="js/index.js"></script>-->
