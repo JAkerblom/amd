@@ -7,14 +7,15 @@ session_start();
   <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="../images/ffcgicon.ico">
+    <!--
     <link rel="stylesheet" href="css/stylestats.css">
-    <link rel="stylesheet" href="css/styleloading.css">
+    <link rel="stylesheet" href="css/styleloading.css">-->
     <link rel="stylesheet" href="css/style.css">
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../data/data.json"></script>
     <!--<script src="js/getstats.js"></script>-->
-    <script src="js/getstats.js"></script>
+    <!--<script src="js/getstats.js"></script>-->
   </head>
   <body>
     <div class="container">
@@ -35,6 +36,11 @@ session_start();
         <h4>Pajdiagrammet visar svarsfördelningen från varje affärsområde.</h4>
       </div>
       <div class="bar" id="secondbar" style="display:none;"></div>
+      <div class="textcontent" style="display:none;">
+        <h3>Här kan du få mer information om den data som modellen baseras på. Den är insamlad via den här hemsidan och hämtas från en databas på Azure cloudservices. Tryck på de olika intresseområdena eller affärsområdena för att dyka ner i datan.</h3>
+        <h4>Stapeldiagrammet visar antal som fyllt i de olika intresseområdena som relevanta.</h4>
+        <h4>Pajdiagrammet visar svarsfördelningen från varje affärsområde.</h4>
+      </div>
       <!--<div id='dashboard' class="items">
         <div id="bardiv"></div>
         <div id="piediv"></div>
