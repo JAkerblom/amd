@@ -2,7 +2,7 @@ $(document).ready(function(e) {
   //console.log(areas);
   console.log(result.freqData[0]);
   $.ajax({
-    url: "/php/getstats.php",
+    url: "/amd/php/getstats.php",
     type: "get",
     dataType: 'json',
     success: function(data) {
@@ -51,8 +51,8 @@ function dashboard(id, fData){
     hGDim.w = 380 - hGDim.l - hGDim.r, 
     hGDim.h = 250 - hGDim.t - hGDim.b;
 
-    //create svg for histogram.
-    var hGsvg = d3.select('#bardiv').append("svg")
+    //create svg for histogram. '#bardiv'
+    var hGsvg = d3.select(id).append("svg")
         .attr("id", "first")
         .attr("width", hGDim.w + hGDim.l + hGDim.r)
         .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
