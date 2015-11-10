@@ -14,7 +14,7 @@ session_start();
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../data/data.json"></script>
     <!--<script src="js/getstats.js"></script>-->
-    
+    <script src="js/getstats.js"></script>
   </head>
   <body>
     <div class="container">
@@ -41,9 +41,6 @@ session_start();
         <div id="tablediv"></div>
       </div>-->
     </div>
-      <script src="js/getstats.js"></script>
-    <!--<script src="js/index.js"></script>-->
-    <!--<script>dashboard('#dashboard',result.freqData);</script>-->
   </body>
 </html>
 
