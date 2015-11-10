@@ -292,9 +292,6 @@ input:checked + label::before {
          background: #fff;
          color: #f58421 !important;
      }
-  .container {
-    max-width: none;
-  }
 }
 
 @media screen and (max-device-width: 768px) {
