@@ -2,38 +2,39 @@ $(document).ready(function(e) {
   //console.log(areas);
   console.log(result.freqData[0]);
   $.ajax({
-      url: "/php/getstats.php",
-      type: "get",
-      dataType: 'json',
-      success: function(data) {
-        $('.loadcontainer').css('display', 'none');
-        $('.textcontent').css('display', 'block');
-        $('#secondbar').css('display', 'block');
-        //var str = '{data:' + data + '}';
-        //var str = data.substr(1,data.length-2);
-        console.log("SQL query results: ");
-        console.log(data);
-        //console.log(data[0]['BA']);
-        //console.log(result.freqData[0].freq['BA']);
-        var resobj = result.freqData;
-        for (var i = 0; i < resobj.length; i++) {
-          $.each(resobj[i].freq, function(key, value) {
-            var val = data[i][key];
-            result.freqData[i].freq[key] = (val == null) ? 0 : parseInt(val);
-          });  
-        }
-        console.log(result.freqData);
-        dashboard('#dashboard', result.freqData);
-        console.log("Success");
-         // i++;
-          //result.freqData[0].freq[key] = (value === null)?0:value;
-        //console.log(Object.keys(result.freqData.freq));
-      },
-      error: function() {
-        console.log('Failed to store data.');
-        alert('Error: Failed to store data. Try to start over and cleanse with refresh.');
+    url: "/amd/php/getstats.php",
+    type: "get",
+    dataType: 'json',
+    success: function(data) {
+      $('.loadcontainer').css('display', 'none');
+      $('.textcontent').css('display', 'block');
+      $('#secondbar').css('display', 'block');
+      //var str = '{data:' + data + '}';
+      //var str = data.substr(1,data.length-2);
+      console.log("SQL query results: ");
+      console.log(data);
+      //console.log(data[0]['BA']);
+      //console.log(result.freqData[0].freq['BA']);
+      var resobj = result.freqData;
+      for (var i = 0; i < resobj.length; i++) {
+        $.each(resobj[i].freq, function(key, value) {
+          var val = data[i][key];
+          result.freqData[i].freq[key] = (val == null) ? 0 : parseInt(val);
+        });  
       }
-    });
+      console.log(result.freqData);
+      dashboard('#dashboard', result.freqData);
+      console.log("Success");
+       // i++;
+        //result.freqData[0].freq[key] = (value === null)?0:value;
+      //console.log(Object.keys(result.freqData.freq));
+    },
+    error: function() {
+      console.log('Failed to store data.');
+      alert('Error: Failed to store data. Try to start over and cleanse with refresh.');
+    }
+  });
+  
 });
 
 function dashboard(id, fData){
@@ -47,11 +48,11 @@ function dashboard(id, fData){
   // function to handle histogram.
   function histoGram(fD){
     var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
-    hGDim.w = 500 - hGDim.l - hGDim.r, 
-    hGDim.h = 300 - hGDim.t - hGDim.b;
+    hGDim.w = 380 - hGDim.l - hGDim.r, 
+    hGDim.h = 250 - hGDim.t - hGDim.b;
 
     //create svg for histogram.
-    var hGsvg = d3.select(id).append("svg")
+    var hGsvg = d3.select('#bardiv').append("svg")
         .attr("id", "first")
         .attr("width", hGDim.w + hGDim.l + hGDim.r)
         .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
@@ -71,7 +72,7 @@ function dashboard(id, fData){
     //console.log($textel);
     $.each($textel, function() {
       //console.log($(this));
-      $(this).attr('transform', 'rotate(-50 20 60)');
+      $(this).attr('transform', 'rotate(-50 20 58)');
     });
       //  .attr("transform", "rotate(-40 20 60)");
 
@@ -141,11 +142,12 @@ function dashboard(id, fData){
 
   // function to handle pieChart.
   function pieChart(pD){
-      var pC ={},    pieDim ={w:250, h: 250};
+      var pC ={},    pieDim ={w:200, h: 200};
       pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
       // create svg for pie chart.
-      var piesvg = d3.select(id).append("svg")
+      var piesvg = d3.select('#piediv').append("svg")
+          .attr("id", "second")
           .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
           .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
 
@@ -193,7 +195,7 @@ function dashboard(id, fData){
       var leg = {};
 
       // create table for legend.
-      var legend = d3.select(id).append("table").attr('class','legend');
+      var legend = d3.select('#piediv').append("table").attr('class','legend');
 
       // create one row per segment.
       var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
