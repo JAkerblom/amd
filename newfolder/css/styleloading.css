@@ -1,6 +1,15 @@
 body {
-  background-color: #f9f9f9;
+  background-color: #2ecc71;
   margin-top: 25px;
+}
+
+.loadcontainer {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20vh;
+  left: 0;
+  right: 0;
 }
 
 .col-sm-2 {
@@ -20,7 +29,7 @@ body {
 /* Spinner Circle Rotation */
 .sp-circle {
   border: 4px rgba(0, 0, 0, 0.25) solid;
-  border-top: 4px black solid;
+  border-top: 4px #2ecc71 solid;
   border-radius: 50%;
   -webkit-animation: spCircRot .6s infinite linear;
   animation: spCircRot .6s infinite linear;
@@ -45,7 +54,7 @@ body {
 /* Spinner 3Balls Scale */
 .sp-3balls, .sp-3balls:before, .sp-3balls:after {
   border-radius: 50%;
-  background-color: #000;
+  background-color: #2ecc71;
   width: 18px;
   height: 18px;
   transform-origin: center center;
@@ -54,7 +63,7 @@ body {
 
 .sp-3balls {
   position: relative;
-  background-color: black;
+  background-color: #2ecc71;
   opacity: 1;
   -webkit-animation: spScaleAlpha 1s infinite linear;
   animation: spScaleAlpha 1s infinite linear;
@@ -244,6 +253,10 @@ body {
   border-left: 16px rgba(0, 0, 0, 0.25) solid;
   border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
   border-right: 16px rgba(0, 0, 0, 0.25) solid;
+  /*border-top: 16px rgba(47, 139, 20, 0.75) solid;
+  border-left: 16px rgba(0, 0, 0, 0.25) solid;
+  border-bottom: 16px rgba(0, 0, 0, 0.25) solid;
+  border-right: 16px rgba(0, 0, 0, 0.25) solid;*/
   -webkit-animation: spSlices 1s infinite linear;
   animation: spSlices 1s infinite linear;
 }

@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,200,300);
+body
+{
+  width:1060px;
+  margin:50px auto;
+  font-family: Lato;
+}
+
+#first {
+  padding-left: 40px;
+  padding-bottom: 55px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  left:100px;
+}
+
+svg {
+  display: block;
+}
+
+table {
+  display: block;
+  position: relative;
+  top:-180px;
+  left: 30%;
+  vertical-align: inherit;
+}
+
+
+line ~ text {
+  transform: rotate(-40 20 60);
+}
+
+/*path { stroke: #fff; }*/
+path { stroke: rgba(255, 255, 255, 1);}
+path:hover { opacity:0.9; }
+rect:hover { fill:#3a6c96; }
+.axis { font: 10px sans-serif; }
+.legend tr{ border-bottom:1px solid grey; }
+.legend tr:first-child{ border-top:1px solid grey; }
+
+.axis path,
+.axis line
+{
+  fill: none;
+  stroke: #464646;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {  display: none; }
+.legend
+{
+  margin-bottom:76px;
+  display:inline-block;
+  /*border-collapse: collapse;
+  border-spacing: 0px;*/
+}
+.legend td{
+  padding:4px 5px;
+  vertical-align:bottom;
+}
+.legendFreq, .legendPerc{
+  align:right;
+  width:50px;
+}

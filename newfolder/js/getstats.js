@@ -2,11 +2,13 @@ $(document).ready(function(e) {
   //console.log(areas);
   console.log(result.freqData[0]);
   $.ajax({
-      url: "/php/getstats.php",
+      url: "/amd/php/getstats.php",
       type: "get",
       dataType: 'json',
       success: function(data) {
-        $('#container').css('display', 'none');
+        $('.loadcontainer').css('display', 'none');
+        $('.textcontent').css('display', 'block');
+        $('#secondbar').css('display', 'block');
         //var str = '{data:' + data + '}';
         //var str = data.substr(1,data.length-2);
         console.log("SQL query results: ");
