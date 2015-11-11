@@ -5,19 +5,19 @@ $(document).ready(function(e) {
   $hiddeninput = $('#inphidd');
   $name = $hiddeninput.attr('name-value');
   $email = $hiddeninput.attr('email-value');
-  $program = $hiddeninput.attr('area-value');
+  $busArea = $hiddeninput.attr('area-value');
   
-  $namespan = $('#stud_name');
+  $namespan = $('#emp_name');
   $firstname = $name.split(' ')[0];
   $namespan.text($firstname);
   
   credentials['name'] = $hiddeninput.attr('name-value');
   credentials['email'] = $hiddeninput.attr('email-value');
-  credentials['program'] = $hiddeninput.attr('program-value');
+  credentials['busArea'] = $hiddeninput.attr('area-value');
   
   console.log(credentials['name']);
   console.log(credentials['email']);
-  console.log(credentials['program']);
+  console.log(credentials['busArea']);
   
 });
 
@@ -52,7 +52,7 @@ function buildJSON() {
   
   $mdobj = models.predictors[0];
   $mdstr = JSON.stringify(models.predictors[0]);
-  $str += '{"stud_input":{"credentials":' + JSON.stringify(credentials) + ',"subjects":{';
+  $str += '{"empl_input":{"credentials":' + JSON.stringify(credentials) + ',"subjects":{';
   var i = 1;
   $.each($mdobj, function(key, value) {
     $str += '"' + key + '"' + ':' + value['value'];
@@ -98,15 +98,15 @@ $(document).ready(function(e) {
     console.log(json);
     json = JSON.parse(json);
     console.log(json);
-    ev.preventDefault();
-    
-    /*The ajax call to dbexec_stud.php */
+
+    /* The ajax call to dbexec_empl.php 
+      url: "/php/dbexec_empl.php",*/
     $.ajax({
-      url: "/php/dbexec_stud.php",
+      url: "/amd/php/dbexec_empl.php",
       type: "post",
       data: json,
       success: function(data) {
-        console.log('Succeded with storing student input data.');
+        console.log('Succeded with storing employee input data.');
         console.log("SQL query results: " + data);
       },
       error: function() {

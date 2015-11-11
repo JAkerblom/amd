@@ -34,7 +34,7 @@ session_start();
     <div class="bar"></div>
     <div class="items" onclick=""></div>
     <!--<a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>-->
-    <a href="../verify/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
+    <a href="../statistics/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
   </div>
   <!--<div class="container">
     
