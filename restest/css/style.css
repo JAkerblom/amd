@@ -15,11 +15,11 @@ html {
 body {
   margin: 20px;
   /*color: #435757;*/
-  /*color: #464646;*/
-  color: #fff;
+  color: #464646;
+  /*color: #fff;*/
   background: -webkit-linear-gradient(110deg, #d0b782 20%, #a0cecf 80%);
   background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
-  background: rgba(245, 132, 33, 0.87);
+  /*background: rgba(245, 132, 33, 0.87);*/
   /*font: 500 1.2em/1.2 'Roboto', sans-serif;*/
   font-family: Lato;
   font-weight: 300;
@@ -31,7 +31,7 @@ body {
   margin: 0 auto;
   /*border-top: 5px solid #435757;*/
   /*border-top: 5px solid #464646;*/
-  /*background-color: rgba(255, 255, 255, .2);*/
+  background-color: rgba(255, 255, 255, .6);
   box-shadow: 0 0 20px rgba(0, 0, 0, .1);
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -246,43 +246,54 @@ input:checked + label::before {
 
 .btn {
     display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
+  position: absolute;
+    margin: 0 auto;
+  bottom: 0;
+  right: 0;
+  padding: 9pt;
+  
+  
     line-height: 1.42857143;
     text-align: center;
-    white-space: nowrap;
+    
     vertical-align: middle;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
     -webkit-user-select: none;
+  /*white-space: nowrap;*/
+}
+
+#nextbutton {
+  width: 100%;
+  height: 2em;
+  bottom: 0;
+  position:relative;
+  margin-top: 2vh;
 }
 
 .submit {
   color: white;
-  width: 100%;
+  width: 40%;
   /*font-family: Lato;*/
   /*font-weight: 100;*/
-  font-size: 1.75em;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  font-size: 1.4em;
+  
   background: transparent;
-    /*background: #fff;
-    color: #f58421;*/
+    /*background: #fff;*/
+  color: #464646;
   -webkit-transition: all 200ms ease-in;
           transition: all 200ms ease-in;
   border-radius: 0em;
-  /*margin-bottom: 4pt;*/
-  padding: 12pt;
-  margin-top: 2pt;
+  /*margin-bottom: 1px;*/
+  
   font-weight: 300 !important;
   text-decoration: none;
 }
 .submit:hover, .submit:focus {
   background: #fff;
   color: #f58421;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  /*border: 1px solid rgba(255, 255, 255, 0.75);*/
 }
 
 @media screen and (max-device-width: 480px){
