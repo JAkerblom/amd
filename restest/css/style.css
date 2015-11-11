@@ -302,6 +302,7 @@ input:checked + label::before {
          color: #f58421 !important;
        font-size: 0.9em;
        width: 100%;
+       text-align: right;
      }
   #skills span {
     font-size: 1em;
@@ -314,5 +315,6 @@ input:checked + label::before {
     color: #f58421 !important;
     font-size: 1em;
     width: 100%;
+    text-align: right;
   }
 }
