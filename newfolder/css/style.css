@@ -292,9 +292,9 @@ input:checked + label::before {
     background: #fff;
     color: #f58421 !important;
   }
-  /**, *::before, *::after {
+  *, *::before, *::after {
     box-sizing: border-box;
-  }*/
+  }
 }
 
 @media screen and (max-device-width: 768px) {
