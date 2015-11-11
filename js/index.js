@@ -118,11 +118,13 @@ $(document).on('click', '.login', function (e) {
   //e.preventDefault();
   $typeofUser = $('input:radio[name=typeofUser]');
   if ($typeofUser[0]['checked']) {
-    e.preventDefault();
-    alert("Student test function is not released yet."); 
+    //e.preventDefault();
+    //alert("Student test function is not released yet."); 
   }
   $name = $('#inputOne');
   $email = $('#inputTwo');
+  $gradYear = $('#inputThree');
+  credentials['gradYear'] = $gradYear.val();
   $droplist = $('#program_holder');
   $alert = false;
   $alertstr = '';
@@ -132,8 +134,6 @@ $(document).on('click', '.login', function (e) {
   
   if ( isValidEmail($email.val()) ) {
     credentials['email'] = $email.val();
-    console.log("Cred. email is: " + credentials['email']);
-    console.log("Input text is: " + $email.val());
   } else {e.preventDefault(); $alert = true; $alertstr = $alertstr + "Please type a valid email. \n";}
 
   $programOrArea = $typeofUser[0]['checked'] ? "program" : "busArea";
@@ -154,6 +154,7 @@ $(document).on('click', '.login', function (e) {
   console.log("Your email is: " + credentials['email']);
   console.log("Business area is: " + credentials['busArea']);
   console.log("Program is: " + credentials['program']);
+  console.log("GradYear is: " + credentials['gradYear']);
   
   var usercreds = JSON.stringify(credentials);
   console.log(JSON.parse(usercreds));
@@ -166,7 +167,7 @@ $(document).on('click', '.login', function (e) {
     url: "/php/session.php", */
   $.ajax({
     type: "POST",
-    url: "/php/session.php",
+    url: "/amd/php/session.php",
     data: usercredsstr, 
     success: function (msg) {
       console.log('Success:' + msg);

@@ -21,10 +21,6 @@ session_start();
 </head>
 <body>
   <div class="container">
-    <input type="hidden" id="inphidd" 
-           name-value="<?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';?>"
-           email-value="<?php echo $_SESSION['user_email']; ?>"
-           program-value="<?php echo $_SESSION['user_program']; ?>"/>
     <h1>Redo för testet <span class="stud_name"></span>?</h1>
     <div class="bar"></div>
     <h3>Välj de områden som känns relevanta för dig i din utbildning och/eller en framtida karriär.</h3>
@@ -34,5 +30,10 @@ session_start();
     <!--<a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>-->
     <a href="../results/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
   </div>
+  <input type="hidden" id="inphidd" 
+           name-value="<?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';?>"
+           email-value="<?php echo isset($_SESSION['user_email']) ? $_SESSION['user_email'] : ''; ?>"
+           program-value="<?php echo $_SESSION['user_program']; ?>"
+           gradYear-value="<?php echo $_SESSION['user_gradYear']; ?>"/>
 </body>
 </html>

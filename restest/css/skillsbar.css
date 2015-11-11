@@ -30,6 +30,29 @@
   padding: 20px;
 }
 
+.descrdiv {
+  display: none;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+  color: #464646 !important;
+  font-weight: 100;
+  font-size: 0.6em;
+
+}
+
+.descrdiv span {
+  color: #464646 !important;
+}
+
+.area-title {
+  display: block;
+}
+
+.area-desc {
+  font-weight: 200 !important;
+}
+
 .area_result {
   visibility: hidden;
   opacity: 0;

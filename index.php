@@ -103,9 +103,10 @@ session_start();
         <h2>Ange dina uppgifter</h2>
         <input type="text" name="inputOne" id="inputOne" tabindex="1" placeholder="namn"/><br/>
         <input type="email" name="inputTwo" id="inputTwo" tabindex="2" placeholder="email"/><br/>
+        <input type="number" name="inputThree" id="inputThree" tabindex="3" placeholder="examensår" style="color:#464646; width:100%; border:none; padding:6px; font-size:1.2em;padding-left:10px"/><br/>
         <p>
         <div class="drop-wrap">
-          <div class="main-drop program" tabindex="3">
+          <div class="main-drop program" tabindex="4">
             <div id="program_holder" data-value="">Välj utbildning</div>
             <span>
               <img src="images/drop-green(4).png" width="45px" height="45px" class=""/>

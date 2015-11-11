@@ -25,7 +25,7 @@ if(!empty($_POST)) {
       $preds = $body->subjects; 
       
       // Use empl_tbl table
-      $table = 'stud_tbl';
+      $table = 'stud_tbl_extended';
       $email = $creds->email;
       
       // Show all occurrences with this email
@@ -36,7 +36,8 @@ if(!empty($_POST)) {
         // Build data to update with
         $name = $creds->name;
         $program = $creds->program;
-        $colvalstr .= "name='".$name."', program='".$program."'";
+        $gradYear = $creds->gradYear;
+        $colvalstr .= "name='".$name."', program='".$program."', gradYear='".$gradYear."'";
 
         foreach ($preds as $key => $value) {
           $colvalstr .= 
@@ -52,7 +53,7 @@ if(!empty($_POST)) {
         $valuestr = '(';
         $i = 1;
         foreach ($creds as $key => $value) {
-          if ($key != 'program') {
+          if ($key != 'busArea') {
             if ($i == 1) {
               $colstr .= $key;
               $valuestr .= "'" . $value . "'";

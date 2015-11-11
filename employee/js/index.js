@@ -21,27 +21,6 @@ $(document).ready(function(e) {
   
 });
 
-/* Helper function to insert area
-    description in the paragraph that
-    it is destined to reside by id
-================================= */
-function replaceDescr(obj, id) {
-  var descr = areas[id][0]['description'];
-  obj.html(descr);
-}
-function replaceTitle(obj, id) {
-  var title = areas[id][0]['title'];
-  console.log(obj);
-  obj.html(title);
-}
-
-/* Use the response and set global 
-    json variables.
-  Goal is to set 'areascores' with 
-    the probabilities, as well to
-    set  
-=================================== */
-function setResults(response) {}
 
 /* Helper function that builds the json 
     request body from the global variable
@@ -116,6 +95,18 @@ $(document).ready(function(e) {
     });
   });
 });
+
+function setResults(response) {
+  // Set areascores
+  result['areascores'][0]['BA'] = parseFloat($response[0]);
+  result['areascores'][0]['BD'] = parseFloat($response[0])-0.15;
+  result['areascores'][0]['BS'] = parseFloat($response[0])+0.15;
+  result['areascores'][0]['BT'] = parseFloat($response[0])-0.6;
+  
+  // Set dropRelation
+  var tmpRes = ['0.07', '0.723', '0.542'];
+  result['dropRelation'][0]['area1'] = '';
+}
 
 // Depr: Not used currently, might be useful later
 //  if SESSION variables are used. 

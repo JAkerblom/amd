@@ -18,21 +18,16 @@ session_start();
     <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
     
     <script src="../data/data.json"></script>
+    <script src="js/setsession.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/index2.js"></script>
     <script>
       $(function() {
         $('progress').each(function() {
           var max = $(this).val();
           $(this).val(0).animate({ value: max }, { duration: 2000, easing: 'easeInOutQuart' });
   			});
-
         $('.area_result').toggleClass('area_result_vis');
-        /*
-        $('.area_result').each(function() {
-          $(this).css('visibility','visible');
-          $(this).css('opacity','1');
-          $(this).css('transition','visibility 0s, opacity 0.5s linear');
-        });*/
       });
     </script>
 </head>
@@ -42,28 +37,25 @@ session_start();
     <div class="bar"></div>
     
     <h3>Om du hade jobbat hos oss hade du antagligen jobbat mot affärsområdet <span id="result-area"></span>.</h3> 
-    <h4>Nedan kan du se matchings-resultaten. Du kan även klicka på de olika fälten för att få reda på mer information om de olika affärsområdena.</h4>
+    <h4>Nedan kan du se resultaten från modellen på Azure. Du kan även klicka på de olika fälten för att få reda på mer information om de olika affärsområdena.</h4>
     <div class="bar"></div>
-    
-    <!--<div class="items" onclick=""></div>-->
-    <!--<a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>-->
-    
-    <section id="skills">
-					<progress value="80" max="100"></progress><span id="area1_holder">Business Application</span><span id="area1_result" class="area_result">80%</span>
-					<progress value="70" max="100"></progress><span id="area2_holder">Business Design</span><span id="area1_result" class="area_result">70%</span>
-					<progress value="60" max="100"></progress><span id="area3_holder">Business Solution</span><span id="area1_result" class="area_result">60%</span>
-					<progress value="70" max="100"></progress><span id="area4_holder">Business Transformation</span>
-      <span id="area1_result" class="area_result">70%</span>
-    </section>
+    <div class="resultbars">
+      <section id="skills">
+				<progress value="80" max="100" area-index="1" area-val="BA"></progress><span id="area1_holder">Business Application</span><span id="area1_result" class="area_result">80%</span><div id="area1" class="descrdiv"></div>
+				<progress value="70" max="100" area-index="2" area-val="BD"></progress><span id="area2_holder">Business Design</span><span id="area1_result" class="area_result">70%</span><div id="area2" class="descrdiv"></div>
+				<progress value="60" max="100" area-index="3" area-val="BS"></progress><span id="area3_holder">Business Solution</span><span id="area1_result" class="area_result">60%</span><div id="area3" class="descrdiv"></div>
+				<progress value="70" max="100" area-index="4" area-val="BT"></progress><span id="area4_holder">Business Transformation</span><span id="area1_result" class="area_result">70%</span><div id="area4" class="descrdiv"></div>
+      </section>
+    </div>
     <!--<a href="../statistics/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Mer statistik</a>-->
-<div id="nextbutton">
-    <a href="../statistics/" id="a-stats" class="btn submit">Mer statistik ></a>
-  </div>
-    
+    <div id="nextbutton">
+      <a href="../statistics/" id="a-stats" class="btn submit" onclick="">Mer statistik ></a>
+    </div>
     <input type="hidden" id="inphidd" 
            name-value="<?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';?>"
-           email-value="<?php echo $_SESSION['user_email']; ?>"
-           area-value="<?php echo $_SESSION['user_busarea']; ?>"/>
+           email-value="<?php echo isset($_SESSION['user_email']) ? $_SESSION['user_email'] : ''; ?>"
+           program-value="<?php echo $_SESSION['user_program']; ?>"
+           gradYear-value="<?php echo $_SESSION['user_gradYear']; ?>"/>
   </div>
   
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
