@@ -300,6 +300,7 @@ input:checked + label::before {
      .submit {
          background: #fff;
          color: #f58421 !important;
+       font-size: 0.9em;
      }
   #skills span {
     font-size: 1em;
@@ -310,5 +311,6 @@ input:checked + label::before {
   .submit {
     background: #fff;
     color: #f58421 !important;
+    font-size: 1em;
   }
 }
