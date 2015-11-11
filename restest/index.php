@@ -21,20 +21,21 @@ session_start();
 </head>
 <body>
   <div class="container">
-    <h1>Hej <span id="emp_name"></span>!</h1>
+    <h1>Grattis!</h1>
     <div class="bar"></div>
+    
+    <h3>Om du hade jobbat hos oss hade du antagligen jobbat mot affärsområdet <span id="result-area"></span>.</h3> 
+    <h4>Nedan kan du se matchings-resultaten.</h4>
+    <h4>Klicka på de olika fälten för att få reda på mer information om de olika affärsområdena.</h4>
+    <div class="bar"></div>
+    <!--<div class="items" onclick=""></div>-->
+    <!--<a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>-->
+    <a href="../statistics/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
+  
     <input type="hidden" id="inphidd" 
            name-value="<?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';?>"
            email-value="<?php echo $_SESSION['user_email']; ?>"
            area-value="<?php echo $_SESSION['user_busarea']; ?>"/>
-    <h3>Välj de områden som känns relevanta för dig, exempelvis:</h3> 
-    <h3>1. i ditt dagliga jobb </h3>
-    <h3>2. i din konsultprofil på Forefront</h3>
-    <h4>Du får klicka i så många alternativ som du känner passar.</h4>
-    <div class="bar"></div>
-    <!--<div class="items" onclick=""></div>-->
-    <!--<a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>-->
-    <a href="../verify/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
   </div>
   <!--<div class="container">
     
