@@ -30,7 +30,7 @@ session_start();
     <h3>Välj de områden som känns relevanta för dig i din utbildning och/eller en framtida karriär.</h3>
     <h4>Du får klicka i så många alternativ som du känner passar.</h4>
     <div class="bar"></div>
-    <!--<div class="items" onclick=""></div>-->
+    <div class="items" onclick=""></div>
     <!--<a href="#" id="dbexec" class="" onclick="getInput()">Kör test</a>-->
     <a href="../results/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Skicka</a>
   </div>
