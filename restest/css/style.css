@@ -261,7 +261,7 @@ input:checked + label::before {
     touch-action: manipulation;
     cursor: pointer;
     -webkit-user-select: none;
-  /*white-space: nowrap;*/
+  white-space: nowrap;
 }
 
 #nextbutton {
@@ -301,6 +301,9 @@ input:checked + label::before {
          background: #fff;
          color: #f58421 !important;
      }
+  #skills span {
+    font-size: 1em;
+  }
 }
 
 @media screen and (max-device-width: 768px) {
