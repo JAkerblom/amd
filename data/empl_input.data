@@ -1,0 +1,55 @@
+"id","name","email","busArea","projektledn","interaktionsdesign","webbutv","processutv","BIanalytics","verksamhetsutv","kravanalys","utbildning","infomod","systemutveckling","forandringsledn","ITstrategi","behovsanalys","testledn","systemarkitektur"
+"1",21,"Jonathan Åkerblom","jonathan.akerblom@ffcg.se","BA",0,1,1,1,1,0,1,0,1,1,0,0,0,0,0
+"2",271,"Peter Wallander","peter.wallander@ffcg.se","BD",0,0,0,1,1,0,0,0,0,0,0,1,0,0,0
+"3",281,"Peter Lundmark","peter.lundmark@ffcg.se","BT",1,0,0,1,0,1,0,0,0,0,1,0,0,0,0
+"4",291,"Eric Leijonmarck","eric.leijonmarck@ffcg.se","BA",0,0,0,1,1,0,0,0,1,1,0,1,0,0,0
+"5",292,"Stefan Stark","stefan.stark@ffcg.se","BA",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+"6",361,"Ulf Isacson","ulf.isacson@ffcg.se","BS",1,0,1,0,1,0,0,1,0,0,0,1,0,0,0
+"7",371,"Erika Sager","erika.sager@ffcg.se","BD",1,0,0,1,0,1,1,1,0,0,0,0,1,0,0
+"8",381,"Ola Hedin","ola.hedin@ffcg.se","BS",1,0,1,1,0,0,1,0,1,1,0,0,0,1,1
+"9",391,"Harald Vaksdal","harald.vaksdal@ffcg.se","BD",1,0,0,1,0,1,0,1,0,0,0,1,1,0,0
+"10",401,"Johan Nilsson","johan.nilsson@ffcg.se","BA",0,1,0,0,0,0,1,1,0,1,0,0,0,1,0
+"11",411,"NA","NA1@ffcg.se","BS",0,1,1,0,0,0,0,1,1,1,0,0,0,0,1
+"12",431,"NA","NA2@ffcg.se","BT",1,0,0,1,0,1,1,1,1,0,0,0,1,0,0
+"13",432,"Simon Johansson","simon.johansson@ffcg.se","BS",0,1,1,0,0,0,0,0,0,1,0,0,0,0,1
+"14",441,"Fredrik Göransson","fredrik.goransson@ffcg.se","BS",1,1,1,1,1,0,0,0,1,1,0,1,0,0,1
+"15",451,"Camilla Arenhäll","camilla.arenhall@ffcg.se","BA",0,1,0,1,1,0,1,0,1,0,1,0,1,0,0
+"16",461,"Fredrik Sörensson","fredrik.sorensson@ffcg.se","BA",0,0,0,1,0,1,1,0,1,1,0,0,0,0,1
+"17",462,"Fredrik Lindkvist","fredrik.lindkvist@ffcg.se","BA",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+"18",471,"Daniel Tibbing","daniel.tibbing@ffcg.se","BS",0,0,1,0,0,0,1,0,0,1,0,0,0,1,0
+"19",481,"Daniel Almquist","daniel.almquist@ffcg.se","BS",0,0,1,0,0,1,0,0,0,1,0,1,0,0,1
+"20",491,"Tobias Joneby","tobias.joneby@ffcg.se","BS",0,1,1,0,0,0,0,0,0,1,0,0,0,0,0
+"21",501,"Johan Pettersson","johan.pettersson@ffcg.se","BS",1,0,1,0,0,1,0,0,0,0,1,0,0,0,0
+"22",511,"Niklas Wanngren","niklas.wanngren@ffcg.se","BS",1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+"23",521,"Erik Bogghed","erik.bogghed@ffcg.se","BS",0,0,1,0,0,0,0,0,0,1,0,0,0,0,1
+"24",531,"Peter Andreasson","peter.andreasson@ffcg.se","BD",1,0,0,0,0,1,0,1,0,0,1,1,0,0,0
+"25",541,"Nina Stolze","nina.stolze@ffcg.se","BS",0,0,1,0,0,0,0,0,1,1,0,0,0,0,1
+"26",551,"Charlotte Åbyhammar","charlotte.abyhammar@ffcg.se","BD",1,1,0,0,0,1,1,0,0,0,0,0,0,0,0
+"27",561,"Markus Birgander","markus.birgander@ffcg.se","BA",1,0,0,1,1,1,1,1,1,1,1,1,0,1,1
+"28",562,"julia ekholm","julia.ekholm@ffcg.se","BA",1,0,0,1,1,1,1,0,1,1,0,1,1,0,1
+"29",571,"Samson Wajntraub","samson.wajntraub@ffcg.se","BD",1,0,0,1,1,1,1,1,0,0,0,1,0,0,0
+"30",581,"Steve Binning","steve.binning@ffcg.se","BA",1,1,0,0,1,1,1,0,1,0,1,1,1,1,1
+"31",591,"Göran Beskow","goran.beskow@ffcg.se","BT",1,0,0,1,0,1,0,1,0,0,1,1,1,0,1
+"32",601,"Erik Forslid","erik.forslid@ffcg.se","BS",0,1,1,0,0,0,0,0,0,1,0,0,0,0,0
+"33",611,"robin spinelli scala","robin.spinelli-scala@ffcg.se","BT",1,0,0,1,1,1,0,0,0,0,1,1,1,0,0
+"34",621,"Arthur Onoszko","arthur.onoszko@ffcg.se","BS",1,1,1,0,0,0,1,1,0,1,0,0,0,0,1
+"35",631,"Kristofer Ågren","kristofer.agren@ffcg.se","BD",1,0,0,1,1,1,1,1,1,0,0,1,1,0,1
+"36",641,"NA","NA3@ffcg.se","BT",1,0,0,1,0,1,1,1,0,0,0,1,1,0,0
+"37",651,"Jonny Svärling","jonny.svarling@ffcg.se","BS",0,0,1,0,0,0,1,1,1,1,0,0,0,0,1
+"38",661,"Johanna Värild","johanna.varild@ffcg.se","BD",0,0,1,1,0,1,1,1,1,1,1,1,1,0,1
+"39",671,"Fredrik Lindqvist","fredrik.lindqvist@ffcg.se","BA",1,0,0,0,0,0,1,1,0,0,1,0,1,0,1
+"40",681,"Robert Lycksell ","robert.lycksell@forefrontconsulting.se","BS",0,0,1,1,0,0,1,1,1,1,0,0,0,0,1
+"41",691,"Anna Sténhoff","anna.stenfoff@ffcg.se","BD",1,0,0,1,0,1,1,1,1,1,1,0,0,0,0
+"42",701,"Peter Forsman","peter.forsman@ffcg.se","BD",1,0,0,1,0,1,1,1,1,0,0,0,1,0,0
+"43",731,"Mårten Edvardsson","marten.edvardsson@ffcg.se","BD",0,0,0,1,1,0,1,0,0,0,0,0,0,0,0
+"44",741,"Mikael Englundh","mikael.englundh@ffcg.se","BS",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+"45",751,"Thomas Philipson","thomas.philipson@ffcg.se","BT",1,0,0,1,0,1,1,0,0,0,0,0,0,0,0
+"46",761,"Johnny Wallin","johnny.wallin@ffcg.se","BS",0,0,0,0,0,0,0,0,0,0,0,1,0,0,1
+"47",771,"Malin Nyman","malin.nyman@ffcg.se","BT",1,0,0,1,0,1,0,1,0,0,1,1,1,0,0
+"48",781,"Nils Hjalmarson","nils.hjalmarson@ffcg.se","BS",1,0,1,0,0,1,1,1,1,0,0,1,0,1,0
+"49",791,"Martin Leo","martin.leo@ffcg.se","BD",1,0,0,1,0,1,1,1,0,0,1,0,1,1,0
+"50",801,"Isabel Zitoun","isabel.zitoun@ffcg.se","BA",0,0,1,1,1,1,1,0,1,0,0,0,1,0,1
+"51",811,"Paul Andersson","paul.andersson@ffcg.se","BD",1,0,0,1,0,0,0,1,1,1,0,1,0,0,0
+"52",821,"Markus Smed","markus.smed@ffcg.se","BD",1,0,0,1,0,1,1,1,0,0,1,1,1,1,1
+"53",831,"Jonathan","jef@ff.se","BT",0,0,0,0,0,0,0,0,0,0,0,1,1,1,1
+"54",841,"Jon Kan","jk@fg.se","BA",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

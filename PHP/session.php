@@ -23,9 +23,9 @@ if ( isset($_POST['result']) ) {
   $body = json_encode($_POST['result']);
   $obj = json_decode($body);
   $_SESSION['BA'] = $obj->areaScores['BA'];
-  $_SESSION['BD'] = $obj->areaScores['BA'];
-  $_SESSION['BS'] = $obj->areaScores['BA'];
-  $_SESSION['BT'] = $obj->areaScores['BA'];
+  $_SESSION['BD'] = $obj->areaScores['BD'];
+  $_SESSION['BS'] = $obj->areaScores['BS'];
+  $_SESSION['BT'] = $obj->areaScores['BT'];
   // Kanske inte behöver emailen.
   //$_SESSION['email'] = $obj->areaScores['email'];
   /*

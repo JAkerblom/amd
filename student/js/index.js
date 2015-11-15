@@ -143,7 +143,7 @@ $(document).ready(function(e) {
         
         //$response = obj.Results.output1.value.Values[0][7];
         $response = obj.Results.output1.value.Values[0];
-        setResults($response);
+        //setResults($response);
       },
       error: function() {
         console.log('an error occurred.');
@@ -186,6 +186,7 @@ function setResults(response) {
   // Get the predicted class
   
   // Set areascores
+  result['areascores'][0]['BA'] = parseFloat($response['BA']);
   result['areascores'][0]['BA'] = parseFloat($response[0]);
   result['areascores'][0]['BD'] = parseFloat($response[0])-0.15;
   result['areascores'][0]['BS'] = parseFloat($response[0])+0.15;
