@@ -163,7 +163,8 @@ function doDBexec() {
   
   /*The ajax call to dbexec_stud.php */
   $.ajax({
-    url: "/amd/php/dbexec_stud.php",
+    //url: "/amd/php/dbexec_stud.php",
+    url: "/php/dbexec_stud.php",
     type: "post",
     data: jsondb,
     success: function(data) {
@@ -217,7 +218,8 @@ function setCookie(cresp, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+d.toUTCString();
-  document.cookie = "user-response="+cresp+"; path=/amd; " + expires;
+  //document.cookie = "user-response="+cresp+"; path=/amd; " + expires;
+  document.cookie = "user-response="+cresp+"; path=/; " + expires;
 }
 
 function getCookie(cname) {
