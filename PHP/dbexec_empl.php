@@ -53,7 +53,7 @@ if(!empty($_POST)) {
         $valuestr = '(';
         $i = 1;
         foreach ($creds as $key => $value) {
-          if ($key != 'program') {
+          if ($key != 'program' && $key != 'gradYear') {
             if ($i == 1) {
               $colstr .= $key;
               $valuestr .= "'" . $value . "'";
