@@ -127,10 +127,10 @@ session_start();
           </div>
         </div>
         </p>
-        <a href="student/" class="btn btn-default login" id="login">Vidare till testet</a>
+        <a href="" class="btn btn-default login" id="login">Vidare till testet</a>
       </div>
     </div>
   </div>
-
+  <div style="display:none;"><a href="student/" class="continue"></a></div>
 </body>
 </html>

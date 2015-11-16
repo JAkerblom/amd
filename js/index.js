@@ -111,13 +111,14 @@ $(document).on('click', '.progChoice', function (e) {
   placeText($(this));
 });
 
-var isDone = false;
+
 $(document).on('click', '.emplChoice', function (e) {
   placeText($(this));
 });
 
+var isDone = false;
 $(document).on('click', '.login', function (e) {
-  if (!isDone) {e.preventDefault();}
+  //if (!isDone) {e.preventDefault();}
   $typeofUser = $('input:radio[name=typeofUser]');
   if ($typeofUser[0]['checked']) {
     //e.preventDefault();
@@ -180,7 +181,7 @@ $(document).on('click', '.login', function (e) {
     }
   });
   if ($alert) {alert($alertstr);}
-  if (isDone) {$(this).trigger('click');}
+  if (isDone) {$('.continue').trigger('click');}
 });
   
 
