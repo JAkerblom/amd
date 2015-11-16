@@ -115,7 +115,7 @@ $(document).on('click', '.emplChoice', function (e) {
 });
 
 $(document).on('click', '.login', function (e) {
-  //e.preventDefault();
+  e.preventDefault();
   $typeofUser = $('input:radio[name=typeofUser]');
   if ($typeofUser[0]['checked']) {
     //e.preventDefault();
@@ -177,6 +177,7 @@ $(document).on('click', '.login', function (e) {
     }
   });
   if ($alert) {alert($alertstr);}
+  e.run();
 });
   
 
