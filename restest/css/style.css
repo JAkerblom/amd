@@ -304,20 +304,19 @@ input:checked + label::before {
        font-size: 0.9em;
       
      }
-  #skills span {
+  .resultbars span {
     font-size: 0.7em;
   }
 }
 
-/*
+
 @media screen and (max-device-width: 768px) and (min-device-width: 481px) {
   .submit {
     background: #fff;
     color: #f58421 !important;
     font-size: 1em;
   }
-  #skills span {
-    font-size: 1.2em;
+  .resultbars span {
+    font-size: 1em;
   }  
 }
-*/
