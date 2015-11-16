@@ -110,6 +110,8 @@ var doSlideToggle = function() {
 $(document).on('click', '.progChoice', function (e) {
   placeText($(this));
 });
+
+var isDone = false;
 $(document).on('click', '.emplChoice', function (e) {
   placeText($(this));
 });
@@ -165,7 +167,6 @@ $(document).on('click', '.login', function (e) {
   
   /* The ajax call to store session variables 
     url: "/php/session.php", */
-  var isDone = false;
   $.ajax({
     type: "POST",
     url: "/php/session.php",
