@@ -21,6 +21,7 @@ $(document).ready(function(e) {
     $('#'+keystr+'_holder').text(areas[result.dropRelation[0][keystr]][0]['title']);
     $('#'+keystr+'_result').text(value*100+"%");
     $('progress[area-index="'+(i+1)+'"').attr('value', value*100);
+    alert("Value is: " + value);
   }
    
   $('progress').trigger('click');
