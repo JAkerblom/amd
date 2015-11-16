@@ -1,5 +1,5 @@
 $(document).ready(function(e) {
-  $('progress').trigger('click');
+  //$('progress').trigger('click');
 });
     
 
@@ -22,7 +22,8 @@ $(document).ready(function(e) {
     $('#'+keystr+'_result').text(value*100+"%");
     $('progress[area-index="'+(i+1)+'"').attr('value', value*100);
   }
-    
+   
+  $('progress').trigger('click');
   //$areaHolders[i].textContent = '';
   //$resultHolders[i].textContent = '';
   //console.log($areaHolders[i].textContent);
