@@ -31,7 +31,8 @@ function buildJSON() {
   
   $mdobj = models.predictors[0];
   $mdstr = JSON.stringify(models.predictors[0]);
-  $str += '{"empl_input":{"credentials":' + JSON.stringify(credentials) + ',"subjects":{';
+  //$str += '{"empl_input":{"credentials":' + JSON.stringify(credentials) + ',"subjects":{';
+  $str += '{"empl_input":{"credentials":{"name":"' + credentials['name'] + '","email":"' + credentials['email'] + '","busArea":"' + credentials['busArea'] + '"},"subjects":{';
   var i = 1;
   $.each($mdobj, function(key, value) {
     $str += '"' + key + '"' + ':' + value['value'];
@@ -73,11 +74,12 @@ $(document).on('click', 'label', function (e) {
 ================================= */
 $(document).ready(function(e) {
   $('#dbexec').on('click', function(ev) {
+    //ev.preventDefault();
     var json = buildJSON();
     console.log(json);
     json = JSON.parse(json);
     console.log(json);
-
+    
     /* The ajax call to dbexec_empl.php 
       url: "/php/dbexec_empl.php",*/
     $.ajax({
