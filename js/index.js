@@ -165,19 +165,21 @@ $(document).on('click', '.login', function (e) {
   
   /* The ajax call to store session variables 
     url: "/php/session.php", */
+  var isDone = false;
   $.ajax({
     type: "POST",
     url: "/php/session.php",
     data: usercredsstr, 
     success: function (msg) {
       console.log('Success:' + msg);
+      isDone = true;
     },
     error: function (err){
       //alert('Error');
     }
   });
   if ($alert) {alert($alertstr);}
-  e.run();
+  if (isDone) {$(this).trigger('click');}
 });
   
 
