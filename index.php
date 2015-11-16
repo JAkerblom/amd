@@ -69,7 +69,7 @@ session_start();
     }
   </style>
 </head>
-<body>
+<body onload="deleteCookie()">
   
   <div class="container main">
     <div class="row">
@@ -78,7 +78,7 @@ session_start();
         <h1>Vill du veta var du<br><span style="font-size:1.5em">passar in hos oss?</span></h1>
           <!--<h1>Vill du veta vilket <br><span style="font-size:1.5em">affärsområde <br>DU tillhör?</span></h1>-->
         <div class="bar"></div>
-        <div class="row">
+        <div class="row" style="display:none;">
           <div class="col-md-6 col-md-offset-3 form accounttype">
             <table style="width:100%">
               <tr>
@@ -94,7 +94,7 @@ session_start();
             </table>
           </div>
         </div>
-        <div class="bar"></div>
+        <!--<div class="bar"></div>-->
       </div>
     </div>
 
@@ -127,7 +127,7 @@ session_start();
           </div>
         </div>
         </p>
-        <a href="" class="btn btn-default login" id="login">Vidare till testet</a>
+        <a href="student/" class="btn btn-default login" id="login">Vidare till testet</a>
       </div>
     </div>
   </div>

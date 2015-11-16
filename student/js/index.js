@@ -2,17 +2,22 @@
 // Also add the SESSION variables to the
 //  json variable that holds these user credentials
 $(document).ready(function(e) {
+  /*
   $hiddeninput = $('#inphidd');
   $name = $hiddeninput.attr('name-value');
   $email = $hiddeninput.attr('email-value');
   $program = $hiddeninput.attr('program-value');
   $gradYear = $hiddeninput.attr('gradYear-value');
   
-  
   credentials['name'] = $name;
   credentials['email'] = $email;
   credentials['program'] = $program;
   credentials['gradYear'] = $gradYear;
+  */
+  credentials['name'] = getCookie('user-name');
+  credentials['email'] = getCookie('user-email');
+  credentials['program'] = getCookie('user-program');
+  credentials['gradYear'] = getCookie('user-gradYear');
   
   console.log(credentials);
   
@@ -22,7 +27,7 @@ $(document).ready(function(e) {
     request body from the global variable
     -> 'model' (data.json).
 ================================== */
-function buildJSONtoMySQL() {
+function buildJSONtoMySQL(result) {
   $str = '';
   
   $mdobj = models.predictors[0];
@@ -35,7 +40,7 @@ function buildJSONtoMySQL() {
     if (i != Object.keys(models.predictors[0]).length) {
       $str += ', ';
     } else { 
-      $str += '}}}';
+      $str += '},"response":'+result+'}}';
     }
     i++;
   });
@@ -45,8 +50,8 @@ function buildJSONtoMySQL() {
 function buildJSONtoAzure() {
   // JSON body parts
   var jsonparts = {
-    'start':'{"body":{"Inputs":{"input1":{"ColumnNames":[', 
-    'middle':'],"Values":[[', 
+    'start':'{"body":{"Inputs":{"input1":{"ColumnNames":["busArea"', 
+    'middle':'],"Values":[["null"', 
     'end':']]}},"GlobalParameters":{}}}'
   };
   
@@ -60,6 +65,9 @@ function buildJSONtoAzure() {
   $mdstr = JSON.stringify($mdobj);
   var i = 1;
   $.each($mdobj, function(key, value) {
+    start += ', "' + key + '"';
+    end += ', ' + ((value['value'])?1:0);
+    /*
     start += '"' + key + '"';
     end += value['value'];
     if (i != Object.keys($mdobj).length) {
@@ -71,8 +79,9 @@ function buildJSONtoAzure() {
       end += ', 0' + jsonparts['end'];
     }
     i++;
+    */
   });
-  totalstring = start + end;
+  totalstring = start + jsonparts['middle'] + end + jsonparts['end'];
   return totalstring;
 }
 
@@ -105,74 +114,71 @@ $(document).on('click', 'label', function (e) {
 $(document).ready(function(e) {
   $('#dbexec').on('click', function(ev) {
     ev.preventDefault();
-  
-    // Store student input
-    var jsondb = buildJSONtoMySQL();
-    console.log(jsondb);
-    jsondb = JSON.parse(jsondb);
-    console.log(jsondb);
-  
-    /*The ajax call to dbexec_stud.php */
-    $.ajax({
-      url: "/amd/php/dbexec_stud.php",
-      type: "post",
-      data: jsondb,
-      success: function(data) {
-        console.log('Succeded with storing student input data.');
-        console.log("SQL query number of affected rows: " + data);
-      },
-      error: function() {
-        console.log('Failed to store data.');
-        alert('Error: Failed to store data. Try to start over and cleanse with refresh.');
-      }
-    });
-    
-    // Communicate with azure ML services
-    var jsonaz = buildJSONtoAzure();
-    console.log(jsonaz);
-    jsonaz = JSON.parse(jsonaz);
-    console.log(jsonaz);
-    $.ajax({  
-      url: "/amd/php/mlexec.php",
-      type: "post",
-      data: jsonaz,
-      success: function(data) { // data arrives as a string
-        console.log("This is response from azure: " + data);
-        var obj = JSON.parse(data); // Parse to JSON object
-        console.log(obj);
-        
-        //$response = obj.Results.output1.value.Values[0][7];
-        $response = obj.Results.output1.value.Values[0];
-        //setResults($response);
-      },
-      error: function() {
-        console.log('an error occurred.');
-      }
-    });
-    
-    // Call the session.php script to store the interesting variables for next page
-    //  i.e. student email??, and his results. In this page these are stored, in next 
-    //  page they are displayed, except from the email.
-    var userResult = JSON.stringify(result.areascores[0]);
-    console.log("Stringified result json is: " + userResult);
-    console.log(JSON.parse(userResult));
-    var userResstr = '{"result":' + userResult + '}';
-    console.log(userResstr);
-    userResstr = JSON.parse(userResstr);
-    // Ajax call to session variables
-    $.ajax({
-      type: "POST",
-      url: "/php/session.php",
-      data: usercredsstr, 
-      success: function (msg) {
-        console.log('Success:' + msg);
-      },
-      error: function (err){
-        alert('Något fel har inträffat i session.php');
-      }
-    });
+    $('.items').css('display', 'none');
+    $('.loadcontainer').css('display', 'block');
+    doMLexec();
   });
 });
+
+function doMLexec() {
+// Communicate with azure ML services
+  //document.cookie = "user-response=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  var jsonaz = buildJSONtoAzure();
+  console.log(jsonaz);
+  jsonaz = JSON.parse(jsonaz);
+  console.log(jsonaz);
+  $.ajax({  
+    //url: "/amd/php/mlexec_amd.php",
+    url: "/php/mlexec_amd.php",
+    type: "post",
+    data: jsonaz,
+    success: function(data) { // data arrives as a string
+      console.log("This is response from azure: " + data);
+      var obj = JSON.parse(data); // Parse to JSON object
+      console.log(obj);
+      $isBA = obj.Results.output1.value.Values[0][16];
+      $isBD = obj.Results.output1.value.Values[0][17];
+      $isBS = obj.Results.output1.value.Values[0][18];
+      $isBT = obj.Results.output1.value.Values[0][19];
+      //$isWhat = "'"+obj.Results.output1.value.Values[0][20]+"'";  
+      $isWhat = obj.Results.output1.value.Values[0][20];  
+      var res = {isBA:$isBA, isBD:$isBD, isBS:$isBS, isBT:$isBT, predicted:$isWhat};
+      console.log(res);
+      setCookie(JSON.stringify(res), 1);
+      //console.log(JSON.parse(getCookie('user-response')));
+      doDBexec();
+    },
+    error: function() {
+      console.log('an error occurred.');
+    }
+  });
+}
+
+function doDBexec() {
+ // Store student input
+  var jsondb = buildJSONtoMySQL(getCookie('user-response'));
+  console.log(jsondb);
+  jsondb = JSON.parse(jsondb);
+  console.log(jsondb);
+  
+  /*The ajax call to dbexec_stud.php */
+  $.ajax({
+    url: "/amd/php/dbexec_stud.php",
+    type: "post",
+    data: jsondb,
+    success: function(data) {
+      console.log('Succeded with storing student input data.');
+      console.log("SQL query number of affected rows: " + data);
+      //$('.continue').trigger('click');
+      var domain = "http://" + window.location.hostname + "/amd/restest/";
+      window.location = domain;
+    },
+    error: function() {
+      console.log('Failed to store data.');
+      alert('Error: Failed to store data. Try to start over and cleanse with refresh.');
+    }
+  });
+}
 
 function setResults(response) {
   // Get the four probabilities
@@ -205,4 +211,28 @@ function getInput() {
     console.log(key + ": " + value['value']);
   });
   return inData;
+}
+
+function setCookie(cresp, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = "user-response="+cresp+"; path=/amd; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function deleteCookie() {
+  document.cookie = "user-response=; path=/amd; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 }

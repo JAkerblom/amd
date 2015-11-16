@@ -36,15 +36,15 @@ session_start();
     <h1>Grattis!</h1>
     <div class="bar"></div>
     
-    <h3>Om du hade jobbat hos oss hade du antagligen jobbat mot affärsområdet <span id="result-area"></span>.</h3> 
-    <h4>Nedan kan du se resultaten från modellen på Azure. Du kan även klicka på de olika fälten för att få reda på mer information om de olika affärsområdena.</h4>
+    <h3>Om du hade jobbat hos oss hade du antagligen jobbat mot affärsområdet <span id="result-area" style="font-weight:400;"></span>.</h3> 
+    <h4>Nedan kan du se resultaten från prediktions-modellen som ligger som en webb-tjänst på Azure.<!--Du kan även klicka på de olika fälten för att få reda på mer information om de olika affärsområdena.--></h4>
     <div class="bar"></div>
     <div class="resultbars">
       <section id="skills">
-				<progress value="80" max="100" area-index="1" area-val="BA"></progress><span id="area1_holder">Business Application</span><span id="area1_result" class="area_result">80%</span><div id="area1" class="descrdiv"></div>
-				<progress value="70" max="100" area-index="2" area-val="BD"></progress><span id="area2_holder">Business Design</span><span id="area1_result" class="area_result">70%</span><div id="area2" class="descrdiv"></div>
-				<progress value="60" max="100" area-index="3" area-val="BS"></progress><span id="area3_holder">Business Solution</span><span id="area1_result" class="area_result">60%</span><div id="area3" class="descrdiv"></div>
-				<progress value="70" max="100" area-index="4" area-val="BT"></progress><span id="area4_holder">Business Transformation</span><span id="area1_result" class="area_result">70%</span><div id="area4" class="descrdiv"></div>
+				<progress value="80" max="100" area-index="1" area-val="BA"></progress><span id="area1_holder" class="area_holder">Business Application</span><span id="area1_result" class="area_result">80%</span><div id="area1" class="descrdiv"></div>
+				<progress value="70" max="100" area-index="2" area-val="BD"></progress><span id="area2_holder" class="area_holder">Business Design</span><span id="area2_result" class="area_result">70%</span><div id="area2" class="descrdiv"></div>
+				<progress value="60" max="100" area-index="3" area-val="BS"></progress><span id="area3_holder" class="area_holder">Business Solution</span><span id="area3_result" class="area_result">60%</span><div id="area3" class="descrdiv"></div>
+				<progress value="70" max="100" area-index="4" area-val="BT"></progress><span id="area4_holder" class="area_holder">Business Transformation</span><span id="area4_result" class="area_result">70%</span><div id="area4" class="descrdiv"></div>
       </section>
     </div>
     <!--<a href="../statistics/" id="dbexec" class="btn btn-default submit" onclick="getInput()">Mer statistik</a>-->

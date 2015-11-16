@@ -1,32 +1,34 @@
 $(document).ready(function(e) {
   $('progress').trigger('click');
 });
+    
 
 $(document).ready(function(e) {
-  console.log("tada: "+credentials['email']);
+  $areaHolders = $('.area_holder');
+  $resultHolders = $('.area_result');
+  console.log($resultHolders);
+  console.log($areaHolders);
+  
+  $c = JSON.parse(getCookie('user-response'));
+  setResults();
+  
+  var keystr;
+  var i;
+  for (i = 0; i < 4; i++) {
+    keystr = Object.keys(result.dropRelation[0])[i];
+    value = result.areascores[0][result.dropRelation[0][keystr]];
+    console.log(value);
+    $('#'+keystr+'_holder').text(areas[result.dropRelation[0][keystr]][0]['title']);
+    $('#'+keystr+'_result').text(value*100+"%");
+    $('progress[area-index="'+(i+1)+'"').attr('value', value*100);
+  }
+    
+  //$areaHolders[i].textContent = '';
+  //$resultHolders[i].textContent = '';
+  //console.log($areaHolders[i].textContent);
+  //console.log($resultHolders[i].textContent);
 });
-                  
 
-/* The drop-downs of area description 
-    and picture. 'On click'
-================================= */
-/*
-$(document).ready(function(e) {
-  $('progress').on('click', function() {
-    var areaDropPressed = $(this).attr('area-index');
-    var areaValue = $(this).attr('area-val');
-    $textbox = $('#area' + areaDropPressed);
-    if ( $textbox.children().length == 0 ) {
-      $textbox.append($('<span class="area-title">'+ areas[areaValue][0]['title'] +'</span><span class="area-desc">'+ areas[areaValue][0]['description'] +'</span>'));
-    }
-    closeAllSliders();
-    if ($textbox.css('display') === 'none') {
-      console.log("it was none.");
-      $textbox.slideToggle();
-    }
-  });
-});
-*/
 
 /* Helper function to drop downs 
     -> Closes all open slides so that
@@ -60,16 +62,71 @@ function replaceTitle(obj, id) {
   obj.html(title);
 }
 
-function setResults(response) {
+function setResults() {
   // Set areascores
-  result['areascores'][0]['BA'] = parseFloat($response[0]);
-  result['areascores'][0]['BD'] = parseFloat($response[0])-0.15;
-  result['areascores'][0]['BS'] = parseFloat($response[0])+0.15;
-  result['areascores'][0]['BT'] = parseFloat($response[0])-0.6;
+  $c = JSON.parse(getCookie('user-response'));
+  $('#result-area').text(areas[$c['predicted']][0]['title']);
   
-  // Set dropRelation
-  var tmpRes = ['0.07', '0.723', '0.542'];
-  result['dropRelation'][0]['area1'] = '';
+  result['areascores'][0]['BA'] = $c['isBA'];
+  result['areascores'][0]['BD'] = $c['isBD'];
+  result['areascores'][0]['BS'] = $c['isBS'];
+  result['areascores'][0]['BT'] = $c['isBT'];
+  console.log(result['areascores'][0]);
+  //var tmp = result['areascores'][0];
+  var tmp;
+  var keyarr = Object.keys(result.areascores[0]);
+  var valarr = new Array();
+  //var newjson = "{";
+  var maxVal = -1;
+  var i;
+  $.each(result['areascores'][0], function(key, value){ 
+    valarr.push(value);
+  });
+  console.log(valarr);
+  console.log(keyarr);
+  for (i = 0; i < 4; i++) {
+    if (valarr[i] < valarr[i+1]) {
+      tmpval = valarr[i+1];
+      valarr[i+1] = valarr[i];
+      valarr[i] = tmpval;
+      
+      tmpkey = keyarr[i+1];
+      keyarr[i+1] = keyarr[i];
+      keyarr[i] = tmpkey;
+      i = i-2;
+    }
+  }
+  
+  i = 0;
+  $.each(result['dropRelation'][0], function(key, value) {
+    result['dropRelation'][0][key] = keyarr[i];
+    i++;
+  });
+         
+  console.log(keyarr);
+  console.log(result['dropRelation'][0]);
+  
+    /*if (value > maxVal) {
+      maxVal = value;
+      newjson += key + ":" + value;
+      //newjson.push(key+':'+value);
+       
+    }
+    i++;
+    */
+
 }
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 

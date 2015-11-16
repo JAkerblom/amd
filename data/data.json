@@ -267,16 +267,15 @@ var result = {
       BA: 0,
       BD: 0,
       BS: 0,
-      BT: 0,
-      email: ''
+      BT: 0
     }
   ],
   dropRelation: [
     {
-      area1: 'BA', // Set to '' later
-      area2: 'BS',
-      area3: 'BD',
-      area4: 'BT'
+      area1: '', // Set to '' later
+      area2: '',
+      area3: '',
+      area4: ''
     }
   ],
   freqD: [

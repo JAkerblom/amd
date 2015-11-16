@@ -116,8 +116,9 @@ $(document).on('click', '.emplChoice', function (e) {
   placeText($(this));
 });
 
-var isDone = false;
+//var isDone = false;
 $(document).on('click', '.login', function (e) {
+  //e.preventDefault();
   //if (!isDone) {e.preventDefault();}
   $typeofUser = $('input:radio[name=typeofUser]');
   if ($typeofUser[0]['checked']) {
@@ -159,6 +160,12 @@ $(document).on('click', '.login', function (e) {
   console.log("Program is: " + credentials['program']);
   console.log("GradYear is: " + credentials['gradYear']);
   
+  setCookie(credentials['name'],
+            credentials['email'],
+            credentials['program'],
+            credentials['gradYear'],
+            1);
+  
   var usercreds = JSON.stringify(credentials);
   console.log(JSON.parse(usercreds));
   console.log(usercreds);
@@ -170,24 +177,47 @@ $(document).on('click', '.login', function (e) {
     url: "/php/session.php", */
   $.ajax({
     type: "POST",
+    //url: "/amd/php/session.php",
     url: "/php/session.php",
     data: usercredsstr, 
     success: function (msg) {
       console.log('Success:' + msg);
-      isDone = true;
+      //isDone = true;
+      //$('.continue').trigger('click');
     },
     error: function (err){
       //alert('Error');
     }
   });
   if ($alert) {alert($alertstr);}
-  if (isDone) {$('.continue').trigger('click');}
+  //if (isDone) {
+  //  $('.continue').trigger('click');
+  //}
 });
-  
+
 
 // Helper functions
 // ====================
-  // Check whether or not student radio button is checked or not
+function setCookie(cname, cemail, cprogram, cgradYear, exdays) {    
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = "user-name="+cname+"; " + expires;
+  document.cookie = "user-email="+cemail+"; " + expires;
+  document.cookie = "user-program="+cprogram+"; " + expires;
+  document.cookie = "user-gradYear="+cgradYear+"; " + expires;
+  
+  //console.log(document.cookie);
+}
+
+function deleteCookie() {
+  document.cookie = "user-name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  document.cookie = "user-email=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  document.cookie = "user-program=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  document.cookie = "user-gradYear=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}
+
+// Check whether or not student radio button is checked or not
 function isStudent() {
   var isStudent = true;
   var $typeofUser = $('.accounttype :input');

@@ -6,6 +6,7 @@ session_start();
 <html>
   <head>
     <meta charset="utf-8">
+    <title>Forefront Arbetsmarknadsdagarna</title>
     <link rel="shortcut icon" href="../images/ffcgicon.ico">
     <link rel="stylesheet" href="css/stylestats.css">
     <link rel="stylesheet" href="css/styleloading.css">
@@ -38,6 +39,9 @@ session_start();
         <div id="bardiv"></div>
         <div id="piediv"></div>
         <div id="tablediv"></div>
+      </div>
+      <div id="nextbutton">
+        <a href="../" id="a-stats" class="btn submit" onclick="">Tillbaka till startsidan ></a>
       </div>
     </div>
   </body>

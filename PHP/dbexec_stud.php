@@ -22,7 +22,8 @@ if(!empty($_POST)) {
     if(isset($_POST['stud_input'])) {
       $body = json_decode(json_encode($_POST['stud_input']));
       $creds = $body->credentials;
-      $preds = $body->subjects; 
+      $preds = $body->subjects;
+      $azres = $body->response;
       
       // Use empl_tbl table
       $table = 'stud_tbl_extended';
@@ -65,6 +66,10 @@ if(!empty($_POST)) {
           $i++;
         }
         foreach ($preds as $key => $value) {
+          $colstr .= ', ' . $key;
+          $valuestr .= ', ' . $value;
+        }
+        foreach ($azres as $key => $value) {
           $colstr .= ', ' . $key;
           $valuestr .= ', ' . $value;
         }

@@ -9,13 +9,13 @@ $(document).ready(function(e) {
   $program = $hiddeninput.attr('program-value');
   $gradYear = $hiddeninput.attr('gradYear-value');
   
-  
   credentials['name'] = $name;
   credentials['email'] = $email;
   credentials['busArea'] = $busArea;
   credentials['program'] = $program;
   credentials['gradYear'] = $gradYear;
   
+  console.log("Deprecated info from session: ");
   console.log(credentials['name']);
   console.log(credentials['email']);
   console.log(credentials['busArea']);

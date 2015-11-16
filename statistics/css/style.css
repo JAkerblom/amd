@@ -263,12 +263,13 @@ input:checked + label::before {
 }
 
 .submit {
-  color: white;
+  color: #464646;
   width: 100%;
+  text-align: right;
   /*font-family: Lato;*/
   /*font-weight: 100;*/
-  font-size: 1.75em;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  font-size: 1.4em;
+  /*border: 1px solid rgba(255, 255, 255, 0.75);*/
   background: transparent;
     /*background: #fff;
     color: #f58421;*/
@@ -276,15 +277,20 @@ input:checked + label::before {
           transition: all 200ms ease-in;
   border-radius: 0em;
   /*margin-bottom: 4pt;*/
-  padding: 12pt;
+  padding: 9pt;
   margin-top: 2pt;
   font-weight: 300 !important;
   text-decoration: none;
 }
+
+.submit, .submit::before, .submit::after {
+  box-sizing: border-box;
+}
+
 .submit:hover, .submit:focus {
   background: #fff;
   color: #f58421;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  /*border: 1px solid rgba(255, 255, 255, 0.75);*/
 }
 
 @media screen and (max-device-width: 480px){
