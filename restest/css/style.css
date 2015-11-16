@@ -304,8 +304,8 @@ input:checked + label::before {
        font-size: 0.9em;
       
      }
-  .resultbars span {
-    font-size: 0.7em;
+  .area_holder, .area_result {
+    font-size: 0.7em !important;
   }
 }
 
@@ -316,7 +316,7 @@ input:checked + label::before {
     color: #f58421 !important;
     font-size: 1em;
   }
-  .resultbars span {
-    font-size: 1em;
+  .area_holder, .area_result {
+    font-size: 1em !important;
   }  
 }
