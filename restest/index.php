@@ -56,13 +56,13 @@ session_start();
            email-value="<?php echo isset($_SESSION['user_email']) ? $_SESSION['user_email'] : ''; ?>"
            program-value="<?php echo $_SESSION['user_program']; ?>"
            gradYear-value="<?php echo $_SESSION['user_gradYear']; ?>"
-           $_SESSION['BA']
-  $_SESSION['BD']
-  $_SESSION['BS']
-  $_SESSION['BT']
+           
            />
   </div>
-  
+  <!-- Inte grate later $_SESSION['BA']
+  $_SESSION['BD']
+  $_SESSION['BS']
+  $_SESSION['BT'] -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 </body>
