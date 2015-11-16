@@ -162,7 +162,7 @@ $(document).ready(function(e) {
     // Ajax call to session variables
     $.ajax({
       type: "POST",
-      url: "/amd/php/session.php",
+      url: "/php/session.php",
       data: usercredsstr, 
       success: function (msg) {
         console.log('Success:' + msg);
