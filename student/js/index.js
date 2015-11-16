@@ -171,7 +171,8 @@ function doDBexec() {
       console.log('Succeded with storing student input data.');
       console.log("SQL query number of affected rows: " + data);
       //$('.continue').trigger('click');
-      var domain = "http://" + window.location.hostname + "/amd/restest/";
+      //var domain = "http://" + window.location.hostname + "/amd/restest/";
+      var domain = "http://" + window.location.hostname + "/restest/";
       window.location = domain;
     },
     error: function() {
