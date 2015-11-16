@@ -65,7 +65,9 @@ function replaceTitle(obj, id) {
 function setResults() {
   // Set areascores
   $c = JSON.parse(getCookie('user-response'));
-  $('#result-area').text(areas[$c['predicted']][0]['title']);
+  var str = $c['predicted'];//.substr(1,2);
+  console.log("str is: " + str);
+  $('#result-area').text(areas[str][0]['title']);
   
   result['areascores'][0]['BA'] = $c['isBA'];
   result['areascores'][0]['BD'] = $c['isBD'];

@@ -71,7 +71,11 @@ if(!empty($_POST)) {
         }
         foreach ($azres as $key => $value) {
           $colstr .= ', ' . $key;
-          $valuestr .= ', ' . $value;
+          if ($key != 'predicted') {
+            $valuestr .= ', ' . $value;
+          } else {
+            $valuestr .= ", '" . $value . "'";
+          }
         }
         $colstr .= ')';
         $valuestr .= ')';

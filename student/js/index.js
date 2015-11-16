@@ -237,5 +237,6 @@ function getCookie(cname) {
 }
 
 function deleteCookie() {
-  document.cookie = "user-response=; path=/amd; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  //document.cookie = "user-response=; path=/amd; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  document.cookie = "user-response=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 }
