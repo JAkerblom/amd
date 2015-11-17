@@ -51,6 +51,7 @@ function dashboard(id, fData){
     var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
     //hGDim.w = 380 - hGDim.l - hGDim.r, 
     //hGDim.h = 250 - hGDim.t - hGDim.b;
+    alert(screen.width);
     hGDim.w = 250 - hGDim.l - hGDim.r, 
     hGDim.h = 150 - hGDim.t - hGDim.b;
 
