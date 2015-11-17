@@ -52,8 +52,8 @@ function dashboard(id, fData){
     var wid = 380;
     var hei = 250;
     if (screen.width < 800) {
-      wid = screen.width*0.8;
-      hei = wid / 1.5;
+      wid = parseInt(screen.width*0.8);
+      hei = parseInt(wid / 1.5);
     }
     //hGDim.w = 380 - hGDim.l - hGDim.r, 
     //hGDim.h = 250 - hGDim.t - hGDim.b;
