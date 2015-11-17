@@ -6,6 +6,7 @@ session_start();
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Forefront Arbetsmarknadsdagarna</title>
     <link rel="shortcut icon" href="../images/ffcgicon.ico">
     <link rel="stylesheet" href="css/stylestats.css">
