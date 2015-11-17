@@ -55,8 +55,8 @@ function dashboard(id, fData){
       wid = parseInt(screen.width*0.8);
       hei = parseInt(wid / 1.5);
     }
-    //hGDim.w = 380 - hGDim.l - hGDim.r, 
-    //hGDim.h = 250 - hGDim.t - hGDim.b;
+    hGDim.w = wid - hGDim.l - hGDim.r, 
+    hGDim.h = hei - hGDim.t - hGDim.b;
     //alert(screen.width);
     //hGDim.w = 250 - hGDim.l - hGDim.r, 
     //hGDim.h = 150 - hGDim.t - hGDim.b;
